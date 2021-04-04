@@ -21,12 +21,14 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Login extends AppCompatActivity {
     private FirebaseAuth mAuth;
-    private EditText emailTV, passwordTV;
+    private EditText emailAddress2, password2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_menu);
+
+        initializeUI();
 
         FloatingActionButton backButton2 = (FloatingActionButton)findViewById(R.id.backButton2);
         backButton2.setOnClickListener(new View.OnClickListener() {
@@ -47,11 +49,12 @@ public class Login extends AppCompatActivity {
         });
         mAuth = FirebaseAuth.getInstance();
     }
+
     private void loginUserAccount() {
 
         String email, password;
-        email = emailTV.getText().toString();
-        password = passwordTV.getText().toString();
+        email = emailAddress2.getText().toString();
+        password = password2.getText().toString();
 
         if (TextUtils.isEmpty(email)) {
             Toast.makeText(getApplicationContext(), "Please enter email...", Toast.LENGTH_LONG).show();
@@ -79,4 +82,8 @@ public class Login extends AppCompatActivity {
                 });
     }
 
+    private void initializeUI() {
+        emailAddress2 = findViewById(R.id.emailAddress2);
+        password2 = findViewById(R.id.password2);
+    }
 }
