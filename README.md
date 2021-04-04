@@ -6,7 +6,7 @@ De La Salle University, BS Computer Engineering, 119
 Starting screen and login screen implemented 
 
 Program/Application Design is initialized
-# Draft 2 - Shawn
+# Draft 2 - Shawn and Jason
 Register.java
 - Initialized Email and Password texts
 - Added the registerNewUser method
