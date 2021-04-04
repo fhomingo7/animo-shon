@@ -26,6 +26,10 @@
             android:name="com.example.Application.Login"
             android:label="Login" >
         </activity>
+        <activity
+            android:name="com.example.Application.MainMenu"
+            android:label="Main Menu" >
+        </activity>
     </application>
 
 </manifest>
