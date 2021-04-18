@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Register extends AppCompatActivity {
     private FirebaseAuth mAuth;
-    private EditText emailAddress, passwordText;
+    private EditText register_emailAddress, register_password, register_confirmPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +42,6 @@ public class Register extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                System.out.println("hello");
                 registerNewUser();
             }
         });
@@ -51,9 +50,10 @@ public class Register extends AppCompatActivity {
 
     private void registerNewUser() {
 
-        String email, password;
-        email = emailAddress.getText().toString();
-        password = passwordText.getText().toString();
+        String email, password, confirmPassword;
+        email = register_emailAddress.getText().toString();
+        password = register_password.getText().toString();
+        confirmPassword = register_confirmPassword.getText().toString();
 
         if (TextUtils.isEmpty(email)) {
             Toast.makeText(getApplicationContext(), "Please enter email...", Toast.LENGTH_LONG).show();
@@ -81,8 +81,9 @@ public class Register extends AppCompatActivity {
                 });
     }
     private void initializeUI() {
-        emailAddress = findViewById(R.id.emailAddress);
-        passwordText = findViewById(R.id.password);
+        register_emailAddress = findViewById(R.id.emailAddress);
+        register_password = findViewById(R.id.password);
+        register_confirmPassword = findViewById(R.id.confirmPassword);
     }
 
 }
