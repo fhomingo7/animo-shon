@@ -63,9 +63,21 @@ public class Register extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Please enter password!", Toast.LENGTH_LONG).show();
             return;
         }
+        if (TextUtils.isEmpty(confirmPassword)) {
+            Toast.makeText(getApplicationContext(), "Please enter the confirmation password!", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (password.length() < 8){
+            Toast.makeText(getApplicationContext(), "The password should be 8 characters long.", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (!password.equals(confirmPassword)){
+            Toast.makeText(getApplicationContext(), "The passwords do not match!", Toast.LENGTH_LONG).show();
+            return;
+        }
 
         mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
@@ -80,6 +92,7 @@ public class Register extends AppCompatActivity {
                     }
                 });
     }
+
     private void initializeUI() {
         register_emailAddress = findViewById(R.id.emailAddress);
         register_password = findViewById(R.id.password);
