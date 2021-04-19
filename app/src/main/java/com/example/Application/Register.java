@@ -91,7 +91,7 @@ public class Register extends AppCompatActivity {
                             startActivity(intent);
                         }
                         else {
-                            Toast.makeText(getApplicationContext(), "Registration failed! Please try again later", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Registration failed!", Toast.LENGTH_LONG).show();
                         }
                     }
                 });
