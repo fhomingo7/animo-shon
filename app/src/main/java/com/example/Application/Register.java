@@ -63,6 +63,10 @@ public class Register extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Please enter password!", Toast.LENGTH_LONG).show();
             return;
         }
+        if (!email.contains("@dlsu.edu.ph")) {
+            Toast.makeText(getApplicationContext(), "Only a DLSU email is allowed!", Toast.LENGTH_LONG).show();
+            return;
+        }
         if (TextUtils.isEmpty(confirmPassword)) {
             Toast.makeText(getApplicationContext(), "Please enter the confirmation password!", Toast.LENGTH_LONG).show();
             return;
