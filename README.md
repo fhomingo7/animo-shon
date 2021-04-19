@@ -36,6 +36,10 @@ Login.java
 Main Menu
 - Buttons are implemented
 
+### April 18, 2021
+Register.java
+- Confirm Password added
+
 # Contributors
 Programmed by Shawn Castillo, Jason Ching, Florenz Domingo
 
