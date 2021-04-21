@@ -27,7 +27,7 @@
                 app:queryHint="Search"/>
 
             <ImageButton
-                android:id="@+id/imageButton4"
+                android:id="@+id/cartButton"
                 android:layout_width="64dp"
                 android:layout_height="match_parent"
                 android:background="#346110"
@@ -36,7 +36,7 @@
                 app:srcCompat="@drawable/cart" />
 
             <ImageButton
-                android:id="@+id/imageButton9"
+                android:id="@+id/messageButton"
                 android:layout_width="250dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="10dp"
@@ -367,16 +367,16 @@
                 android:layout_weight="1" />
 
             <ImageButton
-                android:id="@+id/imageButton5"
+                android:id="@+id/homeButton"
                 android:layout_width="43dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#FFFFFF"
-                android:tint="#00FFFFFF"
-                app:srcCompat="@drawable/home" />
+                android:tint="#00956767"
+                app:srcCompat="@drawable/home1" />
 
             <ImageButton
-                android:id="@+id/imageButton6"
+                android:id="@+id/likesButton"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -384,7 +384,7 @@
                 app:srcCompat="@drawable/likes" />
 
             <ImageButton
-                android:id="@+id/imageButton7"
+                android:id="@+id/purchasesButton"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -392,7 +392,7 @@
                 app:srcCompat="@drawable/purchases" />
 
             <ImageButton
-                android:id="@+id/imageButton8"
+                android:id="@+id/meButton"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"

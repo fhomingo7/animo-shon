@@ -21,18 +21,18 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainMenu extends AppCompatActivity {
+public class Purchases extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_menu);
+        setContentView(R.layout.purchases_menu);
 
-        ImageButton purchasesButton = (ImageButton)findViewById(R.id.purchasesButton);
-        purchasesButton.setOnClickListener(new View.OnClickListener() {
+        ImageButton homeButton = (ImageButton)findViewById(R.id.homeButton);
+        homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainMenu.this, Purchases.class);
+                Intent i = new Intent(Purchases.this, MainMenu.class);
                 startActivity(i);
             }
         });
@@ -41,7 +41,7 @@ public class MainMenu extends AppCompatActivity {
         likesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainMenu.this, Likes.class);
+                Intent i = new Intent(Purchases.this, Likes.class);
                 startActivity(i);
             }
         });
@@ -50,28 +50,10 @@ public class MainMenu extends AppCompatActivity {
         meButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainMenu.this, Me.class);
+                Intent i = new Intent(Purchases.this, Me.class);
                 startActivity(i);
             }
         });
-
-//        ImageButton cartButton = (ImageButton)findViewById(R.id.cartButton);
-//        purchasesButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(MainMenu.this, Cart.class);
-//                startActivity(i);
-//            }
-//        });
-//
-//        ImageButton messageButton = (ImageButton)findViewById(R.id.messageButton);
-//        purchasesButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(MainMenu.this, Messages.class);
-//                startActivity(i);
-//            }
-//        });
 
     }
 

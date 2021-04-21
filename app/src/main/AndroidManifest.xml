@@ -30,6 +30,18 @@
             android:name="com.example.Application.MainMenu"
             android:label="Main Menu" >
         </activity>
+        <activity
+            android:name="com.example.Application.Likes"
+            android:label="Likes" >
+        </activity>
+        <activity
+            android:name="com.example.Application.Purchases"
+            android:label="Purchases" >
+        </activity>
+        <activity
+            android:name="com.example.Application.Me"
+            android:label="Me" >
+        </activity>
     </application>
 
 </manifest>
