@@ -6,80 +6,372 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="76dp"
-        android:text="DISCOVER"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="102dp"
-        android:layout_height="79dp"
-        android:layout_marginTop="627dp"
-        android:layout_marginEnd="291dp"
-        android:layout_marginRight="291dp"
-        android:layout_marginBottom="79dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/home" />
+        android:orientation="vertical">
 
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="85dp"
-        android:layout_height="78dp"
-        android:layout_marginStart="99dp"
-        android:layout_marginLeft="99dp"
-        android:layout_marginTop="627dp"
-        android:layout_marginEnd="209dp"
-        android:layout_marginRight="209dp"
-        android:layout_marginBottom="80dp"
-        android:background="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/likes" />
+        <TextView
+            android:id="@+id/groupHeader"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="20dp"
+            android:background="#346110"
+            android:gravity="center"
+            android:text="DISCOVER"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            app:drawableTint="#00FFFFFF" />
 
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="114dp"
-        android:layout_height="77dp"
-        android:layout_marginStart="184dp"
-        android:layout_marginLeft="184dp"
-        android:layout_marginTop="628dp"
-        android:layout_marginEnd="95dp"
-        android:layout_marginRight="95dp"
-        android:layout_marginBottom="80dp"
-        android:background="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/purchases" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="646dp"
+            android:layout_weight="1">
 
-    <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="95dp"
-        android:layout_height="79dp"
-        android:layout_marginStart="298dp"
-        android:layout_marginLeft="298dp"
-        android:layout_marginTop="628dp"
-        android:layout_marginBottom="78dp"
-        android:background="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/me" />
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center">
+
+                    <LinearLayout
+                        android:layout_width="180dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/item1"
+                            android:layout_width="180dp"
+                            android:layout_height="180dp"
+                            android:background="#000000"
+                            android:padding="1dp"
+                            app:srcCompat="@drawable/noimage" />
+
+                        <TextView
+                            android:id="@+id/itemName1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:fontFamily="sans-serif-black"
+                            android:gravity="center"
+                            android:text="ITEM NAME"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="180dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/item2"
+                            android:layout_width="180dp"
+                            android:layout_height="180dp"
+                            android:background="#000000"
+                            android:padding="1dp"
+                            app:srcCompat="@drawable/noimage" />
+
+                        <TextView
+                            android:id="@+id/itemName2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:fontFamily="sans-serif-black"
+                            android:gravity="center"
+                            android:text="ITEM NAME"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                    </LinearLayout>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center">
+
+                    <LinearLayout
+                        android:layout_width="180dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/item3"
+                            android:layout_width="180dp"
+                            android:layout_height="180dp"
+                            android:background="#000000"
+                            android:padding="1dp"
+                            app:srcCompat="@drawable/noimage" />
+
+                        <TextView
+                            android:id="@+id/itemName3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:fontFamily="sans-serif-black"
+                            android:gravity="center"
+                            android:text="ITEM NAME"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="180dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/item4"
+                            android:layout_width="180dp"
+                            android:layout_height="180dp"
+                            android:background="#000000"
+                            android:padding="1dp"
+                            app:srcCompat="@drawable/noimage" />
+
+                        <TextView
+                            android:id="@+id/itemName4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:fontFamily="sans-serif-black"
+                            android:gravity="center"
+                            android:text="ITEM NAME"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                    </LinearLayout>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center">
+
+                    <LinearLayout
+                        android:layout_width="180dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/item5"
+                            android:layout_width="180dp"
+                            android:layout_height="180dp"
+                            android:background="#000000"
+                            android:padding="1dp"
+                            app:srcCompat="@drawable/noimage" />
+
+                        <TextView
+                            android:id="@+id/itemName5"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:fontFamily="sans-serif-black"
+                            android:gravity="center"
+                            android:text="ITEM NAME"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="180dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/item6"
+                            android:layout_width="180dp"
+                            android:layout_height="180dp"
+                            android:background="#000000"
+                            android:padding="1dp"
+                            app:srcCompat="@drawable/noimage" />
+
+                        <TextView
+                            android:id="@+id/itemName6"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:fontFamily="sans-serif-black"
+                            android:gravity="center"
+                            android:text="ITEM NAME"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                    </LinearLayout>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center">
+
+                    <LinearLayout
+                        android:layout_width="180dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/item7"
+                            android:layout_width="180dp"
+                            android:layout_height="180dp"
+                            android:background="#000000"
+                            android:padding="1dp"
+                            app:srcCompat="@drawable/noimage" />
+
+                        <TextView
+                            android:id="@+id/itemName7"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:fontFamily="sans-serif-black"
+                            android:gravity="center"
+                            android:text="ITEM NAME"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="180dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/item8"
+                            android:layout_width="180dp"
+                            android:layout_height="180dp"
+                            android:background="#000000"
+                            android:padding="1dp"
+                            app:srcCompat="@drawable/noimage" />
+
+                        <TextView
+                            android:id="@+id/itemName8"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:fontFamily="sans-serif-black"
+                            android:gravity="center"
+                            android:text="ITEM NAME"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                    </LinearLayout>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <LinearLayout
+                        android:layout_width="180dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/item9"
+                            android:layout_width="180dp"
+                            android:layout_height="180dp"
+                            android:background="#FFFFFF"
+                            android:padding="1dp"
+                            app:srcCompat="@drawable/noimage" />
+
+                        <TextView
+                            android:id="@+id/itemName9"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:fontFamily="sans-serif-black"
+                            android:gravity="center"
+                            android:text="ITEM NAME"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="180dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/item10"
+                            android:layout_width="180dp"
+                            android:layout_height="180dp"
+                            android:background="#000000"
+                            android:padding="1dp"
+                            app:srcCompat="@drawable/noimage" />
+
+                        <TextView
+                            android:id="@+id/itemName10"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:fontFamily="sans-serif-black"
+                            android:gravity="center"
+                            android:text="ITEM NAME"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                    </LinearLayout>
+
+                </TableRow>
+
+            </TableLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="77dp"
+            android:orientation="horizontal">
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:id="@+id/imageButton5"
+                android:layout_width="43dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:tint="#00FFFFFF"
+                app:srcCompat="@drawable/home" />
+
+            <ImageButton
+                android:id="@+id/imageButton6"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                app:srcCompat="@drawable/likes" />
+
+            <ImageButton
+                android:id="@+id/imageButton7"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                app:srcCompat="@drawable/purchases" />
+
+            <ImageButton
+                android:id="@+id/imageButton8"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                app:srcCompat="@drawable/me" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
