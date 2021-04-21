@@ -42,6 +42,14 @@
             android:name="com.example.Application.Me"
             android:label="Me" >
         </activity>
+        <activity
+            android:name="com.example.Application.Cart"
+            android:label="Shopping Cart" >
+        </activity>
+        <activity
+            android:name="com.example.Application.Messages"
+            android:label="Messages" >
+        </activity>
     </application>
 
 </manifest>

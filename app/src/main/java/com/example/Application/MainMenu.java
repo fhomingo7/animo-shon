@@ -55,23 +55,23 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
-//        ImageButton cartButton = (ImageButton)findViewById(R.id.cartButton);
-//        purchasesButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(MainMenu.this, Cart.class);
-//                startActivity(i);
-//            }
-//        });
-//
-//        ImageButton messageButton = (ImageButton)findViewById(R.id.messageButton);
-//        purchasesButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(MainMenu.this, Messages.class);
-//                startActivity(i);
-//            }
-//        });
+        ImageButton cartButton = (ImageButton)findViewById(R.id.cartButton);
+        cartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainMenu.this, Cart.class);
+                startActivity(i);
+            }
+        });
+
+        ImageButton messageButton = (ImageButton)findViewById(R.id.messageButton);
+        messageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainMenu.this, Messages.class);
+                startActivity(i);
+            }
+        });
 
     }
 
