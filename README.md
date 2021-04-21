@@ -1,5 +1,5 @@
 # Animo ShOn: An Online Shopping Application for Lasallians
-As online classes continue in the pandemic, there may be classes that require materials such as electronics. There may be students that does not know where to find and buy these items. With that in mind, Animo ShOn is created to cater the needs of Lasallians.
+In the current situation worldwide, students are forced to continue their education through online means. As online classes persevere during the pandemic, students may encounter  classes that require specific materials such as electronics or other tools that are not commonly found at home. In order to keep up with the class requirements, they will need to buy these materials or tools. However, as the pandemic continues, they are discouraged from going out and are advised to just use alternative means to acquire said materials and tools. With that in mind, Animo ShOn is created to cater the needs of Lasallians and supply them with the needed materials.
 
 # Requirements and Dependencies
 Language - Java
