@@ -33,12 +33,22 @@ Login.java
 - On line 72, startActivity is defaulted from Login.java to MainActivity.java since no home/dashboard class made
 - Redirects to Main Menu
 
-Main Menu
-- Buttons are implemented
-
 ### April 18, 2021
 Register.java
 - Confirm Password added
+- Edited registration failed prompts
+
+Main Menu
+- Buttons are implemented but not functional
+
+### April 21, 2021
+Login.java
+- Started an Admin Login method "loginAdminAccount"
+
+Main Menu
+- User can now navigate through the different pages of the main screen
+- Java files for other footer buttons are added
+- Search, Shopping Cart, and Messages windows are added
 
 # Contributors
 Programmed by Shawn Castillo, Jason Ching, Florenz Domingo
