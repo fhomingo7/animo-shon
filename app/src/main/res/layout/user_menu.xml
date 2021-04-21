@@ -12,22 +12,56 @@
         android:background="#FFFFFF"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/groupHeader"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_margin="20dp"
+            android:layout_height="84dp"
             android:background="#346110"
+            android:orientation="horizontal">
+
+            <SearchView
+                android:id="@+id/searchBar"
+                android:layout_width="235dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="#FFFFFF"
+                app:queryHint="Search"/>
+
+            <ImageButton
+                android:id="@+id/imageButton4"
+                android:layout_width="64dp"
+                android:layout_height="match_parent"
+                android:background="#346110"
+                android:scaleType="fitCenter"
+                android:tint="#00FFFFFF"
+                app:srcCompat="@drawable/cart" />
+
+            <ImageButton
+                android:id="@+id/imageButton9"
+                android:layout_width="250dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="#346110"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/message" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="#FFFFFF"
             android:gravity="center"
             android:text="DISCOVER"
-            android:textColor="#FFFFFF"
-            android:textSize="25sp"
-            app:drawableTint="#00FFFFFF" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="646dp"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="#C2DACD">
 
             <TableLayout
                 android:layout_width="match_parent"
