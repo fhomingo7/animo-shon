@@ -141,14 +141,12 @@ public class AdminMenu extends AppCompatActivity {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 Toast.makeText(AdminMenu.this, "Product Image Uploaded Successfully...", Toast.LENGTH_SHORT).show();
-
                 Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
                     @Override
                     public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
                         if (!task.isSuccessful()){
                             throw task.getException();
                         }
-
                         downloadImageUrl = filePath.getDownloadUrl().toString();
                         return filePath.getDownloadUrl();
                     }
@@ -157,7 +155,6 @@ public class AdminMenu extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Uri> task) {
                         if (task.isSuccessful()){
                             downloadImageUrl = task.getResult().toString();
-
 
                             Toast.makeText(AdminMenu.this, "Product image successfully saved to database...", Toast.LENGTH_SHORT).show();
 
@@ -186,8 +183,6 @@ public class AdminMenu extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()){
-
-
                             loadingBar.dismiss();
                             Toast.makeText(AdminMenu.this, "Product is added successfully..", Toast.LENGTH_SHORT).show();
                         }
@@ -208,11 +203,10 @@ public class AdminMenu extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-
-        if (resultCode == GalleryPick && resultCode == RESULT_OK && data != null){
+        if (requestCode == GalleryPick && resultCode == RESULT_OK && data != null){
             ImageUri = data.getData();
             InputProductImage.setImageURI(ImageUri);
         }
