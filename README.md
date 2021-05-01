@@ -50,6 +50,14 @@ Main Menu
 - Java files for other footer buttons are added
 - Search, Shopping Cart, and Messages windows are added
 
+### April 30, 2021
+Admin Menu
+- Able to login as admin using username: admin, password: admin
+- Able to upload product information and save it to database
+
+Main Menu
+- Able to view products in home page
+
 # Contributors
 Programmed by Shawn Castillo, Jason Ching, Florenz Domingo
 
