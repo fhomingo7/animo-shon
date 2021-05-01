@@ -8,12 +8,18 @@ Application - Android Studio
 
 Database - Firebase
 
+Virtual Device in Android Studio
+- Pixel 4 API 16 
+- Resolution: 1080 x 2280; 440 dpi
+- API: 16
+- Target: Android 4.1 (Google APIs)
+
 # Environment Setup
 1. Download Android Studio and have a Firebase database
 2. Clone the repository
 3. Create a virtual device (phone category) on Android Studio
-4. Download necessary files in default
-5. Run the program
+5. Download necessary files in default
+6. Run the program
 
 # Revision Logs
 ### April 4, 2021 
