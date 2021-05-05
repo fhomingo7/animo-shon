@@ -8,12 +8,18 @@ Application - Android Studio
 
 Database - Firebase
 
+Virtual Device in Android Studio
+- Pixel 4 API 16 
+- Resolution: 1080 x 2280; 440 dpi
+- API: 16
+- Target: Android 4.1 (Google APIs)
+
 # Environment Setup
 1. Download Android Studio and have a Firebase database
 2. Clone the repository
 3. Create a virtual device (phone category) on Android Studio
-4. Download necessary files in default
-5. Run the program
+5. Download necessary files in default
+6. Run the program
 
 # Revision Logs
 ### April 4, 2021 
@@ -49,6 +55,14 @@ Main Menu
 - User can now navigate through the different pages of the main screen
 - Java files for other footer buttons are added
 - Search, Shopping Cart, and Messages windows are added
+
+### April 30, 2021
+Admin Menu
+- Able to login as admin using username: admin, password: admin
+- Able to upload product information and save it to database
+
+Main Menu
+- Able to view products in home page
 
 # Contributors
 Programmed by Shawn Castillo, Jason Ching, Florenz Domingo
