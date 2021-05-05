@@ -55,6 +55,15 @@ public class Me extends AppCompatActivity {
             }
         });
 
+        Button logoutButton = (Button)findViewById(R.id.log_out);
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Me.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
+
     }
 
 }

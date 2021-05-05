@@ -27,7 +27,72 @@
             android:layout_width="match_parent"
             android:layout_height="646dp"
             android:layout_weight="1"
-            android:background="#C2DACD"/>
+            android:background="#C2DACD">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/my_addresses"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="My Addresses"
+                    android:textColor="#346110"
+                    app:backgroundTint="#FFFFFF" />
+
+                <Button
+                    android:id="@+id/my_contact_numbers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="My Contact Number"
+                    android:textColor="#346110"
+                    app:backgroundTint="#FFFFFF" />
+
+                <Button
+                    android:id="@+id/bank_account"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bank Account/Cards"
+                    android:textColor="#346110"
+                    app:backgroundTint="#FFFFFF" />
+
+                <Button
+                    android:id="@+id/how_to_use"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="How To Use"
+                    android:textColor="#346110"
+                    app:backgroundTint="#FFFFFF" />
+
+                <Button
+                    android:id="@+id/about_us"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="About Us"
+                    android:textColor="#346110"
+                    app:backgroundTint="#FFFFFF" />
+
+                <Button
+                    android:id="@+id/account_deletion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Account Deletion"
+                    android:textColor="#346110"
+                    app:backgroundTint="#FFFFFF" />
+
+                <Button
+                    android:id="@+id/log_out"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="Log Out"
+                    android:textColor="#FFFFFF"
+                    app:backgroundTint="#346110" />
+            </LinearLayout>
+        </ScrollView>
 
         <LinearLayout
             android:layout_width="match_parent"

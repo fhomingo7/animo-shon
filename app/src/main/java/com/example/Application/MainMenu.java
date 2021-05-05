@@ -65,7 +65,7 @@ public class MainMenu extends AppCompatActivity {
         cartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainMenu.this, Cart.class);
+                Intent i = new Intent(MainMenu.this, Item.class);
                 startActivity(i);
             }
         });

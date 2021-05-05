@@ -54,6 +54,10 @@
             android:name="com.example.Application.AdminMenu"
             android:label="Admin Menu" >
         </activity>
+        <activity
+            android:name="com.example.Application.Item"
+            android:label="View Item" >
+        </activity>
     </application>
 
 </manifest>
