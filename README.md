@@ -22,7 +22,7 @@ Virtual Device in Android Studio
 6. Run the program
 
 # Revision Logs
-### April 4, 2021 
+### April 04, 2021 
 Starting screen and login screen implemented 
 
 Program/Application Design is initialized
@@ -63,6 +63,16 @@ Admin Menu
 
 Main Menu
 - Able to view products in home page
+
+### May 05, 2021
+Product View
+- Layout is implemented
+- Image entity for 4 images is placed
+
+Me Menu
+- xml is implemented
+- button functions not yet working except logout
+- NOTE: logout just redirects user to main_menu.xml
 
 # Contributors
 Programmed by Shawn Castillo, Jason Ching, Florenz Domingo
