@@ -93,7 +93,7 @@ public class AdminMenu extends AppCompatActivity {
             Toast.makeText(this, "Please write product description...", Toast.LENGTH_SHORT).show();
         }
         else if (TextUtils.isEmpty(Pname)){
-            Toast.makeText(this, "Please write product price...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please write product name...", Toast.LENGTH_SHORT).show();
         }
         else if (TextUtils.isEmpty(Price)){
             Toast.makeText(this, "Please write product price...", Toast.LENGTH_SHORT).show();
