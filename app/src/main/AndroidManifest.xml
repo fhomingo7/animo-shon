@@ -47,10 +47,6 @@
             android:label="Shopping Cart" >
         </activity>
         <activity
-            android:name="com.example.Application.Messages"
-            android:label="Messages" >
-        </activity>
-        <activity
             android:name="com.example.Application.AdminMenu"
             android:label="Admin Menu" >
         </activity>

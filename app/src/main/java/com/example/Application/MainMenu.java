@@ -65,16 +65,7 @@ public class MainMenu extends AppCompatActivity {
         cartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainMenu.this, Item.class);
-                startActivity(i);
-            }
-        });
-
-        ImageButton messageButton = (ImageButton)findViewById(R.id.messageButton);
-        messageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainMenu.this, Messages.class);
+                Intent i = new Intent(MainMenu.this, Cart.class);
                 startActivity(i);
             }
         });
@@ -99,6 +90,15 @@ public class MainMenu extends AppCompatActivity {
                         productViewHolder.productName.setText(products.getName());
                         productViewHolder.productPrice.setText("₱ " + products.getPrice());
                         Picasso.get().load(products.getImage()).into(productViewHolder.productImage);
+
+                        productViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(MainMenu.this, Item.class);
+                                intent.putExtra("Product ID", products.getPid());
+                                startActivity(intent);
+                            }
+                        });
                     }
 
                     @NonNull
