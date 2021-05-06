@@ -10,6 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:background="#FFFFFF"
+        android:gravity="start"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -20,17 +21,13 @@
             android:background="#346110"
             android:orientation="horizontal">
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/floatingActionButton"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="15dp"
-                android:layout_marginLeft="15dp"
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="40dp"
+                android:layout_height="55dp"
                 android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"
                 android:layout_weight="1"
-                android:clickable="true"
-                app:backgroundTint="#FFFFFF"
+                android:background="#346110"
                 app:srcCompat="@drawable/abc_vector_test" />
 
             <ImageButton
@@ -47,7 +44,7 @@
             <ImageButton
                 android:id="@+id/messageButton"
                 android:layout_width="37dp"
-                android:layout_height="match_parent"
+                android:layout_height="84dp"
                 android:layout_weight="1"
                 android:background="#346110"
                 android:scaleType="fitCenter"
@@ -58,7 +55,7 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="586dp"
+            android:layout_height="560dp"
             android:background="#D8FAE3">
 
             <LinearLayout
@@ -276,9 +273,10 @@
             android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="64dp"
-            android:layout_gravity="end"
-            android:layout_marginBottom="5dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="10dp"
             android:background="#346110"
+            android:paddingBottom="10dp"
             android:text="Add To Cart"
             app:backgroundTint="#346110" />
 
