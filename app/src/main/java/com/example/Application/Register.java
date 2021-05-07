@@ -16,10 +16,18 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
 
 public class Register extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private EditText register_emailAddress, register_password, register_confirmPassword;
+    private DatabaseReference ProductRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +58,7 @@ public class Register extends AppCompatActivity {
 
     private void registerNewUser() {
 
+        ProductRef = FirebaseDatabase.getInstance().getReference().child("Users");
         String email, password, confirmPassword;
         email = register_emailAddress.getText().toString();
         password = register_password.getText().toString();
@@ -85,10 +94,28 @@ public class Register extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(getApplicationContext(), "Registration successful!", Toast.LENGTH_LONG).show();
 
-                            Intent intent = new Intent(Register.this, MainActivity.class);
-                            startActivity(intent);
+                            String newEmail = email.replace("@dlsu.edu.ph","");
+                            HashMap<String, Object> userMap = new HashMap<>();
+                            userMap.put("email", newEmail);
+                            userMap.put("password", password);
+
+                            ProductRef.child(newEmail).updateChildren(userMap)
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()){
+                                                Toast.makeText(getApplicationContext(), "Registration successful!", Toast.LENGTH_LONG).show();
+                                                Intent intent = new Intent(Register.this, MainActivity.class);
+                                                startActivity(intent);
+                                            }
+                                            else {
+                                                Toast.makeText(getApplicationContext(), "Registration failed!", Toast.LENGTH_LONG).show();
+                                            }
+                                        }
+                                    });
+
+
                         }
                         else {
                             Toast.makeText(getApplicationContext(), "Registration failed!", Toast.LENGTH_LONG).show();
