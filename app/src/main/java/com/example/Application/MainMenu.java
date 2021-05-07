@@ -91,6 +91,8 @@ public class MainMenu extends AppCompatActivity {
                         productViewHolder.productPrice.setText("₱ " + products.getPrice());
                         Picasso.get().load(products.getImage()).into(productViewHolder.productImage);
 
+
+
                         productViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {

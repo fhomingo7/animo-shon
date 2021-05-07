@@ -200,30 +200,6 @@
                             android:layout_marginStart="30dp"
                             android:layout_marginLeft="30dp"
                             android:layout_weight="1"
-                            android:text="Warranty"
-                            android:textSize="18sp" />
-
-                        <TextView
-                            android:id="@+id/item_warranty"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="show warranty"
-                            android:textSize="18sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="5dp"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="30dp"
-                            android:layout_marginLeft="30dp"
-                            android:layout_weight="1"
                             android:text="Brand"
                             android:textSize="18sp" />
 
@@ -272,16 +248,34 @@
             </LinearLayout>
         </ScrollView>
 
-        <Button
-            android:id="@+id/addToCartButton"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginBottom="10dp"
-            android:background="#346110"
-            android:paddingBottom="10dp"
-            android:text="Add To Cart"
-            app:backgroundTint="#346110" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
+
+                android:layout_width="wrap_content"
+                android:layout_height="64dp"
+                android:id="@+id/numberButton"
+                app:backgroundColor="#FFFFFF"
+                android:gravity="center"
+                app:initialNumber="1"
+                android:longClickable="false"
+                android:textColor="#346110"
+                android:textSize="14sp"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/addToCartButton"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="10dp"
+                android:background="#346110"
+                android:paddingBottom="10dp"
+                android:text="Add To Cart"
+                app:backgroundTint="#346110" />
+        </LinearLayout>
 
     </LinearLayout>
 

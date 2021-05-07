@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.Application">
 
     <uses-permission android:name="android.permission.INTERNET" /> <!-- this line adds the required permission request -->
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="ANIMO ShOn"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Draft1">
+        android:theme="@style/Theme.Draft1"
+        tools:replace="android:theme,android:label">
+
         <activity android:name="com.example.Application.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
