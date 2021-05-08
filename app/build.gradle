@@ -55,5 +55,4 @@ dependencies {
     implementation 'com.cepheuen.elegant-number-button:lib:1.0.2'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'io.paperdb:paperdb:2.7.1'
-
 }

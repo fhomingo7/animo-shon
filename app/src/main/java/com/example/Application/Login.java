@@ -95,6 +95,7 @@ public class Login extends AppCompatActivity{
                         }
                     });
         }
+        email = email.replace("@dlsu.edu.ph", "");
         Paper.book().write(Prevalent.UserEmailKey, email);
         Paper.book().write(Prevalent.UserPasswordKey, password);
     }
