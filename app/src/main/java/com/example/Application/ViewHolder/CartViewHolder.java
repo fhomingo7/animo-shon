@@ -15,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class CartViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    public TextView txtProductName, txtProductPrice;
+    public TextView txtProductName, txtProductPrice, removeItemText;
     public ElegantNumberButton productQuantity;
     private ItemClickListener itemClickListner;
     public ImageView itemImage;
@@ -27,6 +27,7 @@ public class CartViewHolder extends RecyclerView.ViewHolder implements View.OnCl
         txtProductPrice = itemView.findViewById(R.id.productPrice);
         productQuantity = itemView.findViewById(R.id.numberButton);
         itemImage = itemView.findViewById(R.id.cartImage);
+        removeItemText = itemView.findViewById(R.id.removeItem);
     }
 
     @Override
