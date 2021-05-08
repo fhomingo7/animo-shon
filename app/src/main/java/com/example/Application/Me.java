@@ -21,10 +21,13 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import io.paperdb.Paper;
+
 public class Me extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Paper.init(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.me_menu);
 
@@ -59,6 +62,7 @@ public class Me extends AppCompatActivity {
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Paper.book().destroy();
                 Intent i = new Intent(Me.this, MainActivity.class);
                 startActivity(i);
             }

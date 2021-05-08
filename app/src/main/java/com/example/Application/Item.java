@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.QuickContactBadge;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -19,12 +20,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.Application.Models.Products;
+import com.example.Application.Prevalent.Prevalent;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
@@ -106,6 +112,24 @@ public class Item extends AppCompatActivity {
         cartMap.put("brand", item_brand.getText().toString());
         cartMap.put("description", item_description.getText().toString());
 
+        cartReferenceList.child("User View").child(Prevalent.currentOnlineUser.getName()).child("Products").child(productID).updateChildren(cartMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull @NotNull Task<Void> task) {
+                if (task.isSuccessful()){
+                    cartReferenceList.child("Admin View").child(Prevalent.currentOnlineUser.getName()).child("Products").child(productID).updateChildren(cartMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull @NotNull Task<Void> task) {
+                            if (task.isSuccessful()){
+                                Toast.makeText(Item.this, "Added to Cart List.", Toast.LENGTH_SHORT).show();
+
+                                Intent intent = new Intent(Item.this, MainMenu.class);
+                                startActivity(intent);
+                            }
+                        }
+                    });
+                }
+            }
+        });
     }
 
     private void getProductDetails(String productID) {

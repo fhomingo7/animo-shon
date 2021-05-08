@@ -11,11 +11,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.Application.Prevalent.Prevalent;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
+import io.paperdb.Paper;
 
 
 public class Login extends AppCompatActivity{
@@ -29,6 +32,9 @@ public class Login extends AppCompatActivity{
         setContentView(R.layout.login_menu);
 
         initializeUI();
+
+        Paper.init(this);
+
 
         FloatingActionButton backButton2 = (FloatingActionButton)findViewById(R.id.backButton2);
         backButton2.setOnClickListener(new View.OnClickListener() {
@@ -89,6 +95,8 @@ public class Login extends AppCompatActivity{
                         }
                     });
         }
+        Paper.book().write(Prevalent.UserEmailKey, email);
+        Paper.book().write(Prevalent.UserPasswordKey, password);
     }
 
 
