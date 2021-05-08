@@ -13,14 +13,21 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.Application.Models.Cart;
+import com.example.Application.Models.Products;
+import com.example.Application.Models.Users;
 import com.example.Application.Prevalent.Prevalent;
 import com.example.Application.ViewHolder.CartViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -62,13 +69,28 @@ public class CartActivity extends AppCompatActivity {
                 .setQuery(cartListRef.child("User View").child(Prevalent.currentOnlineUser.getStudentnumber()).child("Products")
                 , Cart.class).build();
 
-        System.out.println("HELLO");
         FirebaseRecyclerAdapter<Cart, CartViewHolder> adapter = new FirebaseRecyclerAdapter<Cart, CartViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull CartViewHolder cartViewHolder, int i, @NonNull Cart sample) {
                 cartViewHolder.txtProductPrice.setText(sample.getPrice());
                 cartViewHolder.txtProductName.setText(sample.getPname());
                 cartViewHolder.productQuantity.setNumber(sample.getQuantity());
+
+                final DatabaseReference imageRef = FirebaseDatabase.getInstance().getReference().child("Products");
+
+                imageRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+                    {
+                        if (dataSnapshot.child(sample.getPid()).exists())
+                        {
+                            Products productData = dataSnapshot.child(sample.getPid()).getValue(Products.class);
+                            Picasso.get().load(productData.getImage()).into(cartViewHolder.itemImage);
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) { }
+                });
             }
 
             @NonNull
