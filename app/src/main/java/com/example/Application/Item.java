@@ -4,13 +4,10 @@ import android.content.Intent;
 import java.util.Calendar;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CalendarView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.QuickContactBadge;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -62,7 +59,7 @@ public class Item extends AppCompatActivity {
         cartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Item.this, Cart.class);
+                Intent i = new Intent(Item.this, CartActivity.class);
                 startActivity(i);
             }
         });
@@ -112,11 +109,11 @@ public class Item extends AppCompatActivity {
         cartMap.put("brand", item_brand.getText().toString());
         cartMap.put("description", item_description.getText().toString());
 
-        cartReferenceList.child("User View").child(Prevalent.currentOnlineUser.getName()).child("Products").child(productID).updateChildren(cartMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+        cartReferenceList.child("User View").child(Prevalent.currentOnlineUser.getStudentnumber()).child("Products").child(productID).updateChildren(cartMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull @NotNull Task<Void> task) {
                 if (task.isSuccessful()){
-                    cartReferenceList.child("Admin View").child(Prevalent.currentOnlineUser.getName()).child("Products").child(productID).updateChildren(cartMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    cartReferenceList.child("Admin View").child(Prevalent.currentOnlineUser.getStudentnumber()).child("Products").child(productID).updateChildren(cartMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull @NotNull Task<Void> task) {
                             if (task.isSuccessful()){

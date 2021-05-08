@@ -252,29 +252,33 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
+
             <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
 
-                android:layout_width="wrap_content"
-                android:layout_height="64dp"
                 android:id="@+id/numberButton"
-                app:backgroundColor="#FFFFFF"
-                android:gravity="center"
-                app:initialNumber="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
                 android:longClickable="false"
                 android:textColor="#346110"
                 android:textSize="14sp"
-                android:visibility="visible" />
+                android:visibility="visible"
+                app:backGroundColor="#346110"
+                app:backgroundColor="#FFFFFF"
+                app:initialNumber="1" />
 
             <Button
                 android:id="@+id/addToCartButton"
                 android:layout_width="match_parent"
-                android:layout_height="64dp"
+                android:layout_height="60dp"
                 android:layout_gravity="center_vertical"
                 android:layout_marginBottom="10dp"
-                android:background="#346110"
                 android:paddingBottom="10dp"
                 android:text="Add To Cart"
-                app:backgroundTint="#346110" />
+                android:textColor="#346110"
+                app:backgroundTint="#FFFFFF"
+                app:iconGravity="textTop"
+                app:strokeColor="#346110" />
         </LinearLayout>
 
     </LinearLayout>
