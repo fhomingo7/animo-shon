@@ -14,8 +14,6 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,15 +23,13 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 
 public class Register extends AppCompatActivity {
-    private FirebaseAuth mAuth;
-    private EditText register_emailAddress, register_password, register_confirmPassword;
+    private EditText register_studentNumber, register_password, register_confirmPassword, register_fullName;
     private DatabaseReference ProductRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_menu);
-        mAuth = FirebaseAuth.getInstance();
 
         initializeUI();
 
@@ -59,12 +55,13 @@ public class Register extends AppCompatActivity {
     private void registerNewUser() {
 
         ProductRef = FirebaseDatabase.getInstance().getReference().child("Users");
-        String email, password, confirmPassword;
-        email = register_emailAddress.getText().toString();
+        String studentNumber, password, confirmPassword, name;
+        studentNumber = register_studentNumber.getText().toString();
         password = register_password.getText().toString();
         confirmPassword = register_confirmPassword.getText().toString();
+        name = register_fullName.getText().toString();
 
-        if (TextUtils.isEmpty(email)) {
+        if (TextUtils.isEmpty(studentNumber)) {
             Toast.makeText(getApplicationContext(), "Please enter email...", Toast.LENGTH_LONG).show();
             return;
         }
@@ -72,8 +69,8 @@ public class Register extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Please enter password!", Toast.LENGTH_LONG).show();
             return;
         }
-        if (!email.contains("@dlsu.edu.ph")) {
-            Toast.makeText(getApplicationContext(), "Only a DLSU email is allowed!", Toast.LENGTH_LONG).show();
+        if (TextUtils.isEmpty(name)) {
+            Toast.makeText(getApplicationContext(), "Please enter phone number!", Toast.LENGTH_LONG).show();
             return;
         }
         if (TextUtils.isEmpty(confirmPassword)) {
@@ -88,46 +85,65 @@ public class Register extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "The passwords do not match!", Toast.LENGTH_LONG).show();
             return;
         }
-
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-
-                            String newEmail = email.replace("@dlsu.edu.ph","");
-                            HashMap<String, Object> userMap = new HashMap<>();
-                            userMap.put("email", newEmail);
-                            userMap.put("password", password);
-
-                            ProductRef.child(newEmail).updateChildren(userMap)
-                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            if (task.isSuccessful()){
-                                                Toast.makeText(getApplicationContext(), "Registration successful!", Toast.LENGTH_LONG).show();
-                                                Intent intent = new Intent(Register.this, MainActivity.class);
-                                                startActivity(intent);
-                                            }
-                                            else {
-                                                Toast.makeText(getApplicationContext(), "Registration failed!", Toast.LENGTH_LONG).show();
-                                            }
-                                        }
-                                    });
-
-
-                        }
-                        else {
-                            Toast.makeText(getApplicationContext(), "Registration failed!", Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
+        validateAccount(studentNumber, name, password);
     }
 
+    private void validateAccount(final String studentNumber, final String name, final String password) {
+        final DatabaseReference RootRef;
+        RootRef = FirebaseDatabase.getInstance().getReference();
+        RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+            {
+                if (!(dataSnapshot.child("Users").child(studentNumber).exists()))
+                {
+                    HashMap<String, Object> userdataMap = new HashMap<>();
+                    userdataMap.put("studentnumber", studentNumber);
+                    userdataMap.put("password", password);
+                    userdataMap.put("name", name);
+
+                    RootRef.child("Users").child(studentNumber).updateChildren(userdataMap)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task)
+                                {
+                                    if (task.isSuccessful())
+                                    {
+                                        Toast.makeText(Register.this, "Congratulations, your account has been created.", Toast.LENGTH_SHORT).show();
+
+                                        Intent intent = new Intent(Register.this, Login.class);
+                                        startActivity(intent);
+                                    }
+                                    else
+                                    {
+                                        Toast.makeText(Register.this, "Network Error: Please try again after some time...", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                }
+                else
+                {
+                    Toast.makeText(Register.this, "This " + studentNumber + " already exists.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Register.this, "Please try again", Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(Register.this, MainActivity.class);
+                    startActivity(intent);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+
     private void initializeUI() {
-        register_emailAddress = findViewById(R.id.emailAddress);
+        register_studentNumber = findViewById(R.id.studentNumber);
         register_password = findViewById(R.id.password);
         register_confirmPassword = findViewById(R.id.confirmPassword);
+        register_fullName = findViewById(R.id.fullName);
     }
 
 }

@@ -1,21 +1,17 @@
 package com.example.Application.Models;
 
-public class Users
-{
-    private String name, password, image, address;
+public class Users {
+    private String name, password, studentnumber;
 
-    public Users()
-    {
+    public Users() {
 
     }
 
-    public Users(String name, String password, String image, String address) {
+    public Users(String name, String password, String studentnumber) {
         this.name = name;
         this.password = password;
-        this.image = image;
-        this.address = address;
+        this.studentnumber = studentnumber;
     }
-
 
     public String getName() {
         return name;
@@ -33,19 +29,15 @@ public class Users
         this.password = password;
     }
 
-    public String getImage() {
-        return image;
+    public String getStudentnumber() {
+        return studentnumber;
     }
 
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
+    public void setStudentnumber(String studentnumber) {
+        this.studentnumber = studentnumber;
     }
 }
+
+
+
+
