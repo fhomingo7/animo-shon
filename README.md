@@ -74,6 +74,18 @@ Me Menu
 - button functions not yet working except logout
 - NOTE: logout just redirects user to main_menu.xml
 
+### May 09, 2021
+Revamped Login and Register Features
+- users use their id number in order to login and register
+- name is also needed when registering
+- temporary admin account settings (username: 12345, password: password)
+
+Added User Functions
+- user is now able to like and unlike items
+- user is now able to add to their cart and see total price
+- user can also change quantity of items in the cart
+- sliding animation is temporarily implemented 
+
 # Contributors
 Programmed by Shawn Castillo, Jason Ching, Florenz Domingo
 
