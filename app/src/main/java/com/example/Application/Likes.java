@@ -55,6 +55,7 @@ public class Likes extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(Likes.this, MainMenu.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.slide_right,R.anim.slide_left);
             }
         });
 
@@ -64,6 +65,7 @@ public class Likes extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(Likes.this, Purchases.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.slide_left,R.anim.slide_right);
             }
         });
 
@@ -73,6 +75,7 @@ public class Likes extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(Likes.this, Me.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.slide_left,R.anim.slide_right);
             }
         });
 

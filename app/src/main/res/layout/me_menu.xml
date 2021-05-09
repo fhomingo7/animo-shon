@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="0dp"
+    android:layout_marginBottom="0dp"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -34,35 +36,148 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/my_addresses"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:paddingLeft="10dp"
+                        android:text="Name"
+                        android:textColor="#346110"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_weight="1"
+                        android:text="IdNumber" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginEnd="0dp"
+                        android:layout_marginRight="0dp"
+                        android:layout_weight="1"
+                        android:text="Contact Number"
+                        android:textColor="#346110" />
+
+                    <TextView
+                        android:id="@+id/textContact"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:text="Please Edit Information" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:text="Address"
+                        android:textColor="#346110" />
+
+                    <TextView
+                        android:id="@+id/textAddress"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:text="Please Edit Information" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:text="Bank Account"
+                    android:textColor="#346110" />
+
+                <TextView
+                    android:id="@+id/textBankAcc"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:text="Please Edit Information" />
+
+                <TextView
+                    android:id="@+id/textView13"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="My Addresses"
-                    android:textColor="#346110"
-                    app:backgroundTint="#FFFFFF" />
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Credit/Debit Card"
+                    android:textColor="#346110" />
+
+                <TextView
+                    android:id="@+id/textCard"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:text="Please Edit Information" />
 
                 <Button
-                    android:id="@+id/my_contact_numbers"
+                    android:id="@+id/me_editButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="My Contact Number"
-                    android:textColor="#346110"
-                    app:backgroundTint="#FFFFFF" />
-
-                <Button
-                    android:id="@+id/bank_account"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Bank Account/Cards"
-                    android:textColor="#346110"
-                    app:backgroundTint="#FFFFFF" />
+                    android:background="#00FFFFFF"
+                    android:text="Edit Information"
+                    android:textColor="#346110" />
 
                 <Button
                     android:id="@+id/how_to_use"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="How To Use"
+                    android:text="How To Use Animo shon"
                     android:textColor="#346110"
                     app:backgroundTint="#FFFFFF" />
 
@@ -75,14 +190,6 @@
                     app:backgroundTint="#FFFFFF" />
 
                 <Button
-                    android:id="@+id/account_deletion"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Account Deletion"
-                    android:textColor="#346110"
-                    app:backgroundTint="#FFFFFF" />
-
-                <Button
                     android:id="@+id/log_out"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
@@ -91,6 +198,7 @@
                     android:text="Log Out"
                     android:textColor="#FFFFFF"
                     app:backgroundTint="#346110" />
+
             </LinearLayout>
         </ScrollView>
 
@@ -99,49 +207,44 @@
             android:layout_height="77dp"
             android:orientation="horizontal">
 
-            <View
-                android:id="@+id/view"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-
             <ImageButton
                 android:id="@+id/homeButton"
-                android:layout_width="43dp"
-                android:layout_height="match_parent"
+                android:layout_width="103dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:adjustViewBounds="false"
                 android:background="#FFFFFF"
+                android:cropToPadding="false"
+                android:scaleType="fitCenter"
                 android:tint="#00956767"
-                app:srcCompat="@drawable/home" />
+                app:srcCompat="@drawable/button_home_black" />
 
             <ImageButton
                 android:id="@+id/likesButton"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="103dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="#FFFFFF"
-                app:srcCompat="@drawable/likes" />
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/button_like_black" />
 
             <ImageButton
                 android:id="@+id/purchasesButton"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="103dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="#FFFFFF"
-                app:srcCompat="@drawable/purchases" />
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/button_purchases_black" />
 
             <ImageButton
                 android:id="@+id/meButton"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="103dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="#FFFFFF"
-                app:srcCompat="@drawable/me1" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/button_me_green" />
 
         </LinearLayout>
 

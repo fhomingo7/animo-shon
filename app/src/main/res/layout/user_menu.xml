@@ -3,28 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
     tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FFFFFF"
+        android:background="#C2DACD"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="84dp"
+            android:layout_height="56dp"
             android:background="#346110"
             android:orientation="horizontal">
 
             <SearchView
                 android:id="@+id/searchBar"
                 android:layout_width="235dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_height="30dp"
+                android:layout_margin="12dp"
                 android:background="#FFFFFF"
-                app:queryHint="Search"/>
+                app:queryHint="Search" />
 
             <ImageButton
                 android:id="@+id/cartButton"
@@ -39,19 +40,10 @@
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="match_parent"
-            android:layout_height="43dp"
-            android:background="#FFFFFF"
-            android:gravity="center"
-            android:text="DISCOVER"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="510dp"
+            android:layout_height="575dp"
             android:scrollbars="vertical" />
 
         <LinearLayout
@@ -59,49 +51,44 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <View
-                android:id="@+id/view"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-
             <ImageButton
                 android:id="@+id/homeButton"
-                android:layout_width="43dp"
-                android:layout_height="match_parent"
+                android:layout_width="103dp"
+                android:layout_height="103dp"
                 android:layout_weight="1"
+                android:adjustViewBounds="false"
                 android:background="#FFFFFF"
+                android:cropToPadding="false"
+                android:scaleType="fitCenter"
                 android:tint="#00956767"
-                app:srcCompat="@drawable/home1" />
+                app:srcCompat="@drawable/button_home_green" />
 
             <ImageButton
                 android:id="@+id/likesButton"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="103dp"
+                android:layout_height="103dp"
                 android:layout_weight="1"
                 android:background="#FFFFFF"
-                app:srcCompat="@drawable/likes" />
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/button_like_black" />
 
             <ImageButton
                 android:id="@+id/purchasesButton"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="103dp"
+                android:layout_height="103dp"
                 android:layout_weight="1"
                 android:background="#FFFFFF"
-                app:srcCompat="@drawable/purchases" />
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/button_purchases_black" />
 
             <ImageButton
                 android:id="@+id/meButton"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="103dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="#FFFFFF"
-                app:srcCompat="@drawable/me" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/button_me_black" />
 
         </LinearLayout>
 
