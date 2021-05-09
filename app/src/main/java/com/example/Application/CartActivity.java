@@ -41,6 +41,7 @@ public class CartActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private Button checkoutButton;
     private TextView totalAmount;
+    private int totalPrice = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +81,12 @@ public class CartActivity extends AppCompatActivity {
                 cartViewHolder.txtProductName.setText(sample.getPname());
                 cartViewHolder.productQuantity.setNumber(sample.getQuantity());
 
+                int productPrice = ((Integer.parseInt(sample.getPrice().replace("₱",""))))
+                        * (Integer.parseInt(sample.getQuantity()));
+                totalPrice = 0;
+                totalPrice += productPrice;
+                totalAmount.setText("₱ " + totalPrice);
+
                 final DatabaseReference imageRef = FirebaseDatabase.getInstance().getReference().child("Products");
                 imageRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -114,6 +121,11 @@ public class CartActivity extends AppCompatActivity {
                                 .child("Products").child(sample.getPid()).removeValue();
                         cartRef.child("Admin View").child(Prevalent.currentOnlineUser.getStudentnumber())
                                 .child("Products").child(sample.getPid()).removeValue();
+
+                        int productPrice = ((Integer.parseInt(sample.getPrice().replace("₱",""))))
+                                * (Integer.parseInt(sample.getQuantity()));
+                        totalPrice -= productPrice;
+                        totalAmount.setText("₱ " + totalPrice);
                     }
                 });
             }
@@ -127,6 +139,7 @@ public class CartActivity extends AppCompatActivity {
             }
         };
 
+        totalAmount.setText("₱ " + totalPrice);
         recyclerView.setAdapter(adapter);
         adapter.startListening();
     }

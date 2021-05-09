@@ -76,7 +76,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="(Price)"
+                android:text="₱ 0"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="#346110" />
 
