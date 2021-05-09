@@ -55,15 +55,6 @@
             android:layout_margin="20dp"
             android:orientation="horizontal">
 
-            <CheckBox
-                android:id="@+id/checkBox2"
-                android:layout_width="144dp"
-                android:layout_height="wrap_content"
-                android:text="ALL"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="#346110"
-                app:buttonTint="#346110" />
-
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
