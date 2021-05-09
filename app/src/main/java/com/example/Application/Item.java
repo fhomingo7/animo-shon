@@ -134,6 +134,7 @@ public class Item extends AppCompatActivity {
         final DatabaseReference cartRef = FirebaseDatabase.getInstance().getReference().child("Like List");
         cartRef.child(Prevalent.currentOnlineUser.getStudentnumber()).child("Products")
                 .child(productID).removeValue();
+        Toast.makeText(Item.this, "Removed from Liked Items.", Toast.LENGTH_SHORT).show();
     }
 
     private void addingToLikeList(){

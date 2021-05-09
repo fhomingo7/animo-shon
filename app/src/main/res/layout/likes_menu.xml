@@ -26,7 +26,13 @@
             android:layout_width="match_parent"
             android:layout_height="646dp"
             android:layout_weight="1"
-            android:background="#C2DACD"/>
+            android:background="#C2DACD">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/likedItems"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </ScrollView>
 
         <LinearLayout
             android:layout_width="match_parent"

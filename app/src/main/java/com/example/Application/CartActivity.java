@@ -83,7 +83,6 @@ public class CartActivity extends AppCompatActivity {
 
                 int productPrice = ((Integer.parseInt(sample.getPrice().replace("₱",""))))
                         * (Integer.parseInt(sample.getQuantity()));
-                totalPrice = 0;
                 totalPrice += productPrice;
                 totalAmount.setText("₱ " + totalPrice);
 
@@ -110,6 +109,8 @@ public class CartActivity extends AppCompatActivity {
                                 .child("Products").child(sample.getPid()).child("quantity").setValue(String.valueOf(newValue));
                         cartRef.child("Admin View").child(Prevalent.currentOnlineUser.getStudentnumber())
                                 .child("Products").child(sample.getPid()).child("quantity").setValue(String.valueOf(newValue));
+                        totalPrice -= ((Integer.parseInt(sample.getPrice().replace("₱",""))))
+                                * (Integer.parseInt(sample.getQuantity()));
                     }
                 });
 

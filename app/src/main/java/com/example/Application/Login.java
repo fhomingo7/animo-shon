@@ -74,7 +74,7 @@ public class Login extends AppCompatActivity{
             Toast.makeText(getApplicationContext(), "Please enter password!", Toast.LENGTH_LONG).show();
             return;
         }
-        if (studentNumber.equals("admin")) {
+        if (studentNumber.equals("12345")) {
             if (password.equals("admin")) {
                 Toast.makeText(getApplicationContext(), "Welcome Admin!", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(Login.this, AdminMenu.class);
