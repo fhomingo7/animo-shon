@@ -35,6 +35,7 @@ import java.util.HashMap;
 public class Item extends AppCompatActivity {
     private String productID = "";
     private Button addToCartButton;
+    private ImageButton likeButton;
     private ElegantNumberButton numberButton;
     private TextView item_name, item_price, item_stock, item_brand, item_description;
     private ImageView item_image1;
@@ -83,6 +84,89 @@ public class Item extends AppCompatActivity {
             }
         });
 
+        likeButton = (ImageButton)findViewById(R.id.likeItemButton);
+        checkifLiked();
+
+        likeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final DatabaseReference likeReferenceList = FirebaseDatabase.getInstance().getReference().child("Like List");
+                likeReferenceList.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.child(Prevalent.currentOnlineUser.getStudentnumber()).child("Products").child(productID).exists()) {
+                            likeButton.setImageResource(R.drawable.liked_item);
+                            removeFromLikeList();
+                            checkifLiked();
+                        }
+                        else {
+                            likeButton.setImageResource(R.drawable.button_like_green);
+                            addingToLikeList();
+                            checkifLiked();
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) { }
+                });
+
+            }
+        });
+    }
+
+    private void checkifLiked(){
+        final DatabaseReference likeReferenceList = FirebaseDatabase.getInstance().getReference().child("Like List");
+        likeReferenceList.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.child(Prevalent.currentOnlineUser.getStudentnumber()).child("Products").child(productID).exists()) {
+                    likeButton.setImageResource(R.drawable.liked_item);
+                }
+                else{
+                    likeButton.setImageResource(R.drawable.button_like_green);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) { }
+        });
+    }
+
+    private void removeFromLikeList(){
+        final DatabaseReference cartRef = FirebaseDatabase.getInstance().getReference().child("Like List");
+        cartRef.child(Prevalent.currentOnlineUser.getStudentnumber()).child("Products")
+                .child(productID).removeValue();
+    }
+
+    private void addingToLikeList(){
+        String saveCurrentTime, saveCurrentDate;
+
+        Calendar calendarForDate = Calendar.getInstance();
+        SimpleDateFormat currentDate = new SimpleDateFormat("MMM dd, yyyy");
+        saveCurrentDate = currentDate.format(calendarForDate.getTime());
+
+        SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
+        saveCurrentTime = currentTime.format(calendarForDate.getTime());
+
+        final DatabaseReference likeReferenceList = FirebaseDatabase.getInstance().getReference().child("Like List");
+
+        final HashMap<String, Object> likeMap = new HashMap<>();
+        likeMap.put("pid", productID);
+        likeMap.put("pname", item_name.getText().toString());
+        likeMap.put("price", item_price.getText().toString());
+        likeMap.put("date", saveCurrentDate);
+        likeMap.put("time", saveCurrentTime);
+        likeMap.put("quantity", numberButton.getNumber());
+        likeMap.put("stock", item_stock.getText().toString());
+        likeMap.put("brand", item_brand.getText().toString());
+        likeMap.put("description", item_description.getText().toString());
+
+        likeReferenceList.child(Prevalent.currentOnlineUser.getStudentnumber()).child("Products").child(productID).updateChildren(likeMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull @NotNull Task<Void> task) {
+                if (task.isSuccessful()){
+                    Toast.makeText(Item.this, "Added to Liked Items.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
