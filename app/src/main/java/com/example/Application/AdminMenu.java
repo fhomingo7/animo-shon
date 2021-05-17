@@ -16,6 +16,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -75,6 +76,14 @@ public class AdminMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ValidateProductData();
+            }
+        });
+        android.widget.SearchView search = (android.widget.SearchView) findViewById(R.id.searchBar);
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(AdminMenu.this, SearchProductActivity.class);
+                startActivity(i);
             }
         });
     }

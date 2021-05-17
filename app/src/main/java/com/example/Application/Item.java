@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -33,7 +34,7 @@ import java.text.SimpleDateFormat;
 import java.util.HashMap;
 
 public class Item extends AppCompatActivity {
-    private String productID = "";
+    private String productID = "", state = "Normal";
     private Button addToCartButton;
     private ImageButton likeButton;
     private ElegantNumberButton numberButton;
@@ -80,7 +81,14 @@ public class Item extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onClick(View v) {
-                addingToCartList();
+
+
+                if (state.equals("Order Placed") || state.equals("Order Shipped")){
+                    Toast.makeText(Item.this, "you can purchase more product once your order is shipped or confirmed", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    addingToCartList();
+                }
             }
         });
 
@@ -232,6 +240,41 @@ public class Item extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        CheckOrderState();
+    }
+
+    private void CheckOrderState(){
+        DatabaseReference orderRef;
+        orderRef = FirebaseDatabase.getInstance().getReference().child("Orders").child(Prevalent.currentOnlineUser.getStudentnumber());
+        orderRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    String shippingState = snapshot.child("state").getValue().toString();
+
+                    if (shippingState.equals("shipped")){
+                        state = "Order Shipped";
+
+                    }
+                    else if (shippingState.equals("not shipped")){
+                        state = "Order Placed";
+                    }
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
 
             }
         });

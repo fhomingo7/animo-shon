@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SearchProductActivity">
+    <LinearLayout
+        android:id="@+id/linear1"
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
+        android:background="#346110"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/searchProductBar"
+            android:layout_width="235dp"
+            android:layout_height="39dp"
+            android:layout_margin="20dp"
+            android:background="#FFFFFF"
+            android:hint="Product Name"
+            android:padding="10dp"
+            />
+
+        <Button
+            android:id="@+id/searchProductButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/searchProductBar"
+            android:text="Search"
+            android:textStyle="bold"
+            android:padding="10dp"
+            />
+
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/searchList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/linear1"
+        />
+
+</RelativeLayout>

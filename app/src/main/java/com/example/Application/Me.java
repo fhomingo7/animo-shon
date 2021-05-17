@@ -25,11 +25,17 @@ import io.paperdb.Paper;
 
 public class Me extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Paper.init(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.me_menu);
+
+
+
+        
 
         ImageButton homeButton = (ImageButton)findViewById(R.id.homeButton);
         homeButton.setOnClickListener(new View.OnClickListener() {
@@ -64,6 +70,15 @@ public class Me extends AppCompatActivity {
             public void onClick(View v) {
                 Paper.book().destroy();
                 Intent i = new Intent(Me.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
+
+        Button profileButton = (Button)findViewById(R.id.myProfile);
+        profileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Me.this, ProfileActivity.class);
                 startActivity(i);
             }
         });

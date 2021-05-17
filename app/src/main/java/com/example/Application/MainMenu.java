@@ -2,6 +2,7 @@ package com.example.Application;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -68,6 +69,17 @@ public class MainMenu extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        android.widget.SearchView search = (android.widget.SearchView) findViewById(R.id.searchBar);
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainMenu.this, SearchProductActivity.class);
+                startActivity(i);
+                }
+            });
+
+
+
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         layoutManager = new GridLayoutManager(this, 2);

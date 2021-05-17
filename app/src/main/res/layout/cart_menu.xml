@@ -44,10 +44,25 @@
         </LinearLayout>
 
 
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/cart_list"
             android:layout_width="414dp"
             android:layout_height="450dp" />
+        <TextView
+            android:id="@+id/msg1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="center_horizontal"
+            android:text="Congratulations, your final order has been placed successfully. Soon it will be verified"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:visibility="gone"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"

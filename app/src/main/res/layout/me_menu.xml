@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
+    android:layout_marginTop="20dp"
+    android:layout_marginBottom="6dp"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -18,7 +20,7 @@
             android:layout_height="56dp"
             android:background="#346110"
             android:gravity="center"
-            android:text="MY PROFILE"
+            android:text="SETTINGS"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="#FFFFFF"
             app:drawableTint="#FFFFFF" />
@@ -34,19 +36,17 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/my_addresses"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="My Addresses"
-                    android:textColor="#346110"
-                    app:backgroundTint="#FFFFFF" />
+
+
+
+
+
 
                 <Button
-                    android:id="@+id/my_contact_numbers"
+                    android:id="@+id/myProfile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="My Contact Number"
+                    android:text="My Profile"
                     android:textColor="#346110"
                     app:backgroundTint="#FFFFFF" />
 
@@ -71,14 +71,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="About Us"
-                    android:textColor="#346110"
-                    app:backgroundTint="#FFFFFF" />
-
-                <Button
-                    android:id="@+id/account_deletion"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Account Deletion"
                     android:textColor="#346110"
                     app:backgroundTint="#FFFFFF" />
 

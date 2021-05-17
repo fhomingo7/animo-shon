@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.Application">
 
-    <uses-permission android:name="android.permission.INTERNET" /> <!-- this line adds the required permission request -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,8 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Draft1"
         tools:replace="android:theme,android:label">
-
-        <activity android:name="com.example.Application.MainActivity">
+        <activity android:name=".AdminNewOrdersActivity"></activity>
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".ConfirmFinalOrderActivity" />
+        <activity android:name=".SearchProductActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,41 +25,32 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.Application.Register"
-            android:label="Register" >
-        </activity>
+            android:name=".Register"
+            android:label="Register" />
         <activity
-            android:name="com.example.Application.Login"
-            android:label="Login" >
-        </activity>
+            android:name=".Login"
+            android:label="Login" />
         <activity
-            android:name="com.example.Application.MainMenu"
-            android:label="Main Menu" >
-        </activity>
+            android:name=".MainMenu"
+            android:label="Main Menu" />
         <activity
-            android:name="com.example.Application.Likes"
-            android:label="Likes" >
-        </activity>
+            android:name=".Likes"
+            android:label="Likes" />
         <activity
-            android:name="com.example.Application.Purchases"
-            android:label="Purchases" >
-        </activity>
+            android:name=".Purchases"
+            android:label="Purchases" />
         <activity
-            android:name="com.example.Application.Me"
-            android:label="Me" >
-        </activity>
+            android:name=".Me"
+            android:label="Me" />
         <activity
-            android:name="com.example.Application.CartActivity"
-            android:label="Shopping Cart" >
-        </activity>
+            android:name=".CartActivity"
+            android:label="Shopping Cart" />
         <activity
-            android:name="com.example.Application.AdminMenu"
-            android:label="Admin Menu" >
-        </activity>
+            android:name=".AdminMenu"
+            android:label="Admin Menu" />
         <activity
-            android:name="com.example.Application.Item"
-            android:label="View Item" >
-        </activity>
+            android:name=".Item"
+            android:label="View Item" />
     </application>
 
 </manifest>
