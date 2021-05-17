@@ -39,49 +39,44 @@
             android:layout_height="77dp"
             android:orientation="horizontal">
 
-            <View
-                android:id="@+id/view"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-
             <ImageButton
                 android:id="@+id/homeButton"
-                android:layout_width="43dp"
+                android:layout_width="103dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:adjustViewBounds="false"
                 android:background="#FFFFFF"
+                android:cropToPadding="false"
+                android:scaleType="fitCenter"
                 android:tint="#00956767"
-                app:srcCompat="@drawable/home" />
+                app:srcCompat="@drawable/button_home_black" />
 
             <ImageButton
                 android:id="@+id/likesButton"
-                android:layout_width="wrap_content"
+                android:layout_width="103dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#FFFFFF"
-                app:srcCompat="@drawable/likes1" />
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/button_like_green" />
 
             <ImageButton
                 android:id="@+id/purchasesButton"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="103dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="#FFFFFF"
-                app:srcCompat="@drawable/purchases" />
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/button_purchases_black" />
 
             <ImageButton
                 android:id="@+id/meButton"
-                android:layout_width="wrap_content"
+                android:layout_width="103dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#FFFFFF"
-                app:srcCompat="@drawable/me" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/button_me_black" />
 
         </LinearLayout>
 
