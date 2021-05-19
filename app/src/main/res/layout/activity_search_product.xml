@@ -26,13 +26,15 @@
             android:id="@+id/searchProductButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="15dp"
             android:layout_toRightOf="@+id/searchProductBar"
-            android:text="Search"
-            android:textStyle="bold"
             android:padding="10dp"
-            />
+            android:text="Search"
+            android:textColor="#346110"
+            android:textStyle="bold"
+            app:backgroundTint="#FFFFFF" />
 
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView

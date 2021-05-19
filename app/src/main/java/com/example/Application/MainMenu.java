@@ -1,5 +1,6 @@
 package com.example.Application;
 
+import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
@@ -26,6 +27,7 @@ public class MainMenu extends AppCompatActivity {
     private DatabaseReference ProductsRef;
     private RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
+    private ImageButton CheckOrdersButton, HomeButton, settingButton, editButton;
 
     private String type = "";
 
@@ -36,61 +38,96 @@ public class MainMenu extends AppCompatActivity {
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
-        if (bundle != null){
-            type = getIntent().getExtras().get("Admin").toString();
-        }
-
-
-        ProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
-
-        ImageButton purchasesButton = (ImageButton)findViewById(R.id.purchasesButton);
-        purchasesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainMenu.this, Purchases.class);
-                startActivity(i);
-                overridePendingTransition(R.anim.slide_left,R.anim.slide_right);
-            }
-        });
-
-        ImageButton likesButton = (ImageButton)findViewById(R.id.likesButton);
-        likesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainMenu.this, Likes.class);
-                startActivity(i);
-                overridePendingTransition(R.anim.slide_left,R.anim.slide_right);
-            }
-        });
-
-        ImageButton meButton = (ImageButton)findViewById(R.id.meButton);
-        meButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainMenu.this, Me.class);
-                startActivity(i);
-                overridePendingTransition(R.anim.slide_left,R.anim.slide_right);
-            }
-        });
-
         ImageButton cartButton = (ImageButton)findViewById(R.id.cartButton);
-        cartButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainMenu.this, CartActivity.class);
-                startActivity(i);
-            }
-        });
-        android.widget.SearchView search = (android.widget.SearchView) findViewById(R.id.searchBar);
-        search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainMenu.this, SearchProductActivity.class);
-                startActivity(i);
+
+        if (bundle != null){
+            ProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
+
+            type = getIntent().getExtras().get("Admin").toString();
+            cartButton.setVisibility(View.INVISIBLE);
+            CheckOrdersButton = (ImageButton) findViewById(R.id.purchasesButton);
+            HomeButton = (ImageButton) findViewById(R.id.homeButton);
+            settingButton = (ImageButton) findViewById(R.id.meButton);
+            editButton = (ImageButton) findViewById(R.id.likesButton);
+            CheckOrdersButton.setImageResource(R.drawable.button_deliveries_black);
+            HomeButton.setImageResource(R.drawable.button_home_black);
+            settingButton.setImageResource(R.drawable.button_settings_black);
+            editButton.setImageResource(R.drawable.button_products_green);
+
+            CheckOrdersButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(MainMenu.this, AdminNewOrdersActivity.class);
+                    startActivity(i);
                 }
             });
 
+            HomeButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(MainMenu.this, AdminMenu.class);
+                    startActivity(i);
+                }
+            });
+            android.widget.SearchView search = (android.widget.SearchView) findViewById(R.id.searchBar);
+            search.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(MainMenu.this, SearchProductActivity.class);
+                    startActivity(i);
+                }
+            });
+        }
 
+        else {
+            ProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
+
+            ImageButton purchasesButton = (ImageButton)findViewById(R.id.purchasesButton);
+            purchasesButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(MainMenu.this, Purchases.class);
+                    startActivity(i);
+                    overridePendingTransition(R.anim.slide_left,R.anim.slide_right);
+                }
+            });
+
+            ImageButton likesButton = (ImageButton)findViewById(R.id.likesButton);
+            likesButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(MainMenu.this, Likes.class);
+                    startActivity(i);
+                    overridePendingTransition(R.anim.slide_left,R.anim.slide_right);
+                }
+            });
+
+            ImageButton meButton = (ImageButton)findViewById(R.id.meButton);
+            meButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(MainMenu.this, Me.class);
+                    startActivity(i);
+                    overridePendingTransition(R.anim.slide_left,R.anim.slide_right);
+                }
+            });
+
+            cartButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(MainMenu.this, CartActivity.class);
+                    startActivity(i);
+                }
+            });
+            android.widget.SearchView search = (android.widget.SearchView) findViewById(R.id.searchBar);
+            search.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(MainMenu.this, SearchProductActivity.class);
+                    startActivity(i);
+                }
+            });
+        }
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
@@ -112,9 +149,6 @@ public class MainMenu extends AppCompatActivity {
                         productViewHolder.productName.setText(products.getName());
                         productViewHolder.productPrice.setText("₱ " + products.getPrice());
                         Picasso.get().load(products.getImage()).into(productViewHolder.productImage);
-
-
-
 
                         productViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override

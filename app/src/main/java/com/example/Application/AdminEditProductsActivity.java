@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -33,13 +34,10 @@ public class AdminEditProductsActivity extends AppCompatActivity {
 
     private DatabaseReference productsRef;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.activity_admin_edit_products);
 
         productID = getIntent().getStringExtra("Product ID");
         productsRef = FirebaseDatabase.getInstance().getReference().child("Products").child(productID);
@@ -48,16 +46,11 @@ public class AdminEditProductsActivity extends AppCompatActivity {
         name = findViewById(R.id.admin_itemName);
         price = findViewById(R.id.admin_itemPrice);
         description = findViewById(R.id.admin_itemDescription);
+        stock = findViewById(R.id.admin_itemStock);
+        brand = findViewById(R.id.admin_itemBrand);
         imageView = findViewById(R.id.admin_itemImage);
 
         displaySpecificProductInfo();
-
-        applyChangesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                applyChanges();
-            }
-        });
 
     }
 

@@ -95,20 +95,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/product_price"
-        android:text="Add Product"
-        android:layout_marginTop="30dp"
         android:layout_marginLeft="75dp"
+        android:layout_marginTop="12dp"
         android:layout_marginRight="75dp"
         android:background="#346110"
+        android:text="Add Product"
 
-        />
+        app:backgroundTint="#346110" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="78dp"
-        android:orientation="horizontal"
         android:layout_below="@+id/add_product_button"
-        android:layout_marginTop="6dp"
-        >
+        android:layout_marginTop="25dp"
+        android:orientation="horizontal">
 
         <View
             android:id="@+id/view"
@@ -122,9 +122,9 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#FFFFFF"
-            android:tint="#00956767"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/home1" />
+            android:tint="#00956767"
+            app:srcCompat="@drawable/button_home_green" />
 
         <ImageButton
             android:id="@+id/editproductsButton"
@@ -146,12 +146,12 @@
 
         <ImageButton
             android:id="@+id/meButton"
-            android:layout_width="wrap_content"
+            android:layout_width="42dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#FFFFFF"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/me" />
+            app:srcCompat="@drawable/button_settings_black" />
 
         <View
             android:layout_width="0dp"
@@ -159,6 +159,7 @@
             android:layout_weight="1" />
 
     </LinearLayout>
+
 
 
 </RelativeLayout>

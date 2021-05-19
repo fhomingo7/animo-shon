@@ -109,24 +109,26 @@
             android:textAlignment="center"
             android:textSize="25dp"
             android:textStyle="bold"/>
+
         <Button
             android:id="@+id/admin_editProductButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/admin_itemDescription"
-            android:layout_margin="50dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="2dp"
-            android:layout_marginRight="2dp"
-            android:layout_marginBottom="2dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="50dp"
+            android:background="#346110"
             android:gravity="center_horizontal"
-            android:text="Apply Changes"
             android:padding="12dp"
+            android:text="Apply Changes"
             android:textAlignment="center"
             android:textSize="12dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            app:backgroundTint="#346110" />
 
     </RelativeLayout>
 

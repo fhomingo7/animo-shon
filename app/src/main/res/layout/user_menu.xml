@@ -15,15 +15,15 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="84dp"
             android:background="#346110"
             android:orientation="horizontal">
 
             <SearchView
                 android:id="@+id/searchBar"
                 android:layout_width="235dp"
-                android:layout_height="30dp"
-                android:layout_margin="12dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
                 android:background="#FFFFFF"
                 app:queryHint="Search" />
 
@@ -43,18 +43,18 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="575dp"
+            android:layout_height="540dp"
             android:scrollbars="vertical" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="77dp"
             android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/homeButton"
                 android:layout_width="103dp"
-                android:layout_height="103dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:adjustViewBounds="false"
                 android:background="#FFFFFF"
@@ -66,7 +66,7 @@
             <ImageButton
                 android:id="@+id/likesButton"
                 android:layout_width="103dp"
-                android:layout_height="103dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#FFFFFF"
                 android:scaleType="fitCenter"
@@ -75,7 +75,7 @@
             <ImageButton
                 android:id="@+id/purchasesButton"
                 android:layout_width="103dp"
-                android:layout_height="103dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="#FFFFFF"
                 android:scaleType="fitCenter"
@@ -84,11 +84,11 @@
             <ImageButton
                 android:id="@+id/meButton"
                 android:layout_width="103dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#FFFFFF"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/button_settings_black" />
+                app:srcCompat="@drawable/button_me_black" />
 
         </LinearLayout>
 

@@ -61,7 +61,7 @@
                 android:layout_weight="1"
                 android:background="#FFFFFF"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/button_purchases_black" />
+                app:srcCompat="@drawable/button_purchases_green" />
 
             <ImageButton
                 android:id="@+id/meButton"

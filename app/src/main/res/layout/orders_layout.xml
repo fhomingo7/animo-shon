@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     >
@@ -31,6 +32,8 @@
                     android:id="@+id/order_userName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="8dp"
                     android:text="Username"
                     android:textSize="15sp" />
@@ -39,13 +42,18 @@
                     android:id="@+id/order_phoneNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:text="Phone Number"
                     android:textSize="15sp" />
+
                 <TextView
                     android:id="@+id/order_studentnumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:text="Student Number"
                     android:textSize="15sp" />
@@ -54,34 +62,42 @@
                     android:id="@+id/order_totalPrice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:text="Total Price"
                     android:textSize="15sp" />
+
                 <TextView
                     android:id="@+id/order_address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:text="Address, City"
                     android:textSize="15sp" />
+
                 <TextView
                     android:id="@+id/order_date_time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:text="Date Time"
                     android:textSize="15sp" />
 
                 <Button
                     android:id="@+id/order_button"
-                    android:layout_width="match_parent"
+                    android:layout_width="402dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:layout_marginLeft="75dp"
-                    android:layout_marginRight="75dp"
+                    android:layout_marginEnd="40dp"
+                    android:layout_marginRight="40dp"
                     android:background="#346110"
-                    android:text="Show this order product"
-                    />
+                    android:text="Show order details"
+                    app:backgroundTint="#346110" />
 
 
             </LinearLayout>
