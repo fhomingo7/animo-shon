@@ -4,17 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdminNewOrdersActivity">
+    tools:context=".AdminUserProductsActivity">
+
 
     <LinearLayout
-        android:id="@+id/layout1"
+        android:id="@+id/layout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#346110"
         android:orientation="horizontal">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/admin_newOrders_backButton"
+            android:id="@+id/admin_userProducts_backButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -27,20 +28,19 @@
             app:srcCompat="@drawable/abc_vector_test" />
 
         <TextView
-            android:id="@+id/newOrders_Text"
+            android:id="@+id/admin_userProducts_Text"
             android:layout_width="284dp"
             android:layout_height="83dp"
             android:background="#346110"
             android:gravity="center"
-            android:text="New Orders"
+            android:text="Products"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="#FFFFFF" />
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/orders_list"
-        android:layout_below="@+id/layout1"
+        android:id="@+id/admin_userProducts_list"
+        android:layout_below="@+id/layout3"
         android:layout_width="414dp"
         android:layout_height="450dp" />
-
 
 </RelativeLayout>

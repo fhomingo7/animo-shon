@@ -27,25 +27,20 @@
             android:background="#FFFFFF"
             app:queryHint="Search"/>
 
-        <ImageButton
-            android:id="@+id/cartButton"
-            android:layout_width="64dp"
-            android:layout_height="match_parent"
-            android:background="#346110"
-            android:scaleType="fitCenter"
-            android:tint="#00FFFFFF"
-            android:src="@drawable/cart" />
 
-        <ImageButton
-            android:id="@+id/messageButton"
-            android:layout_width="250dp"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:background="#346110"
-            android:scaleType="fitCenter"
-            android:src="@drawable/message" />
+        <Button
+            android:id="@+id/checkOrdersBtn"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
+            android:text="Check Orders"
+            android:textSize="10dp"
+            />
+
+
 
     </LinearLayout>
 

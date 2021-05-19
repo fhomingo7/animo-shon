@@ -33,7 +33,7 @@
         android:id="@+id/shipment_phone_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/shipment_name"
+        android:layout_below="@+id/shipment_studentID"
         android:inputType="number"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
@@ -59,6 +59,17 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:hint="Your City"
+        />
+    <EditText
+        android:id="@+id/shipment_studentID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/shipment_name"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:inputType="number"
+        android:hint="Your Student ID"
         />
 
 

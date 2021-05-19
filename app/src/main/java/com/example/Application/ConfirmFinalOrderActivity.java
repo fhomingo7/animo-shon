@@ -25,7 +25,7 @@ import java.util.HashMap;
 
 public class ConfirmFinalOrderActivity extends AppCompatActivity {
 
-    private EditText nameEdit, phoneEdit, addressEdit, cityEdit;
+    private EditText nameEdit, phoneEdit, addressEdit, cityEdit, studentIDEdit;
     private Button confirmBtn;
 
     private String totalAmount = "";
@@ -43,6 +43,7 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
         phoneEdit = (EditText)findViewById(R.id.shipment_phone_number);
         addressEdit = (EditText)findViewById(R.id.shipment_address);
         cityEdit = (EditText)findViewById(R.id.shipment_city);
+        studentIDEdit = (EditText)findViewById(R.id.shipment_studentID);
 
         confirmBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +66,9 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
         else if (TextUtils.isEmpty(cityEdit.getText().toString())){
             Toast.makeText(this, "Please provide your city.", Toast.LENGTH_SHORT).show();
         }
+        else if (TextUtils.isEmpty(studentIDEdit.getText().toString())){
+            Toast.makeText(this, "Please provide your Student ID.", Toast.LENGTH_SHORT).show();
+        }
         else {
             confirmOrder();
         }
@@ -86,6 +90,7 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
         ordersMap.put("totalAmount", totalAmount);
         ordersMap.put("name", nameEdit.getText().toString());
         ordersMap.put("phone", phoneEdit.getText().toString());
+        ordersMap.put("studentnumber", studentIDEdit.getText().toString());
         ordersMap.put("address", addressEdit.getText().toString());
         ordersMap.put("city", cityEdit.getText().toString());
         ordersMap.put("date", saveCurrentDate);

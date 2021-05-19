@@ -36,7 +36,7 @@ import java.util.HashMap;
 
 public class AdminMenu extends AppCompatActivity {
     private ImageView InputProductImage;
-    private Button AddProductButton;
+    private Button AddProductButton, CheckOrdersButton;
     private EditText InputProductName, InputProductDescription, InputProductPrice, InputProductStock, InputProductBrand;
     private static final int GalleryPick = 1;
     private Uri ImageUri;
@@ -55,6 +55,7 @@ public class AdminMenu extends AppCompatActivity {
         ProductImagesRef = FirebaseStorage.getInstance().getReference().child("Product Images");
         ProductRef = FirebaseDatabase.getInstance().getReference().child("Products");
         AddProductButton = (Button) findViewById(R.id.add_product_button);
+        CheckOrdersButton = (Button) findViewById(R.id.checkOrdersBtn);
         InputProductImage = (ImageView) findViewById(R.id.select_product_image);
         InputProductName = (EditText) findViewById(R.id.product_name);
         InputProductDescription = (EditText) findViewById(R.id.product_description);
@@ -83,6 +84,14 @@ public class AdminMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(AdminMenu.this, SearchProductActivity.class);
+                startActivity(i);
+            }
+        });
+
+        CheckOrdersButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(AdminMenu.this, AdminNewOrdersActivity.class);
                 startActivity(i);
             }
         });
