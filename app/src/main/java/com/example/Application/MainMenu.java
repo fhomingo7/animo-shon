@@ -27,10 +27,19 @@ public class MainMenu extends AppCompatActivity {
     private RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
 
+    private String type = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_menu);
+
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        if (bundle != null){
+            type = getIntent().getExtras().get("Admin").toString();
+        }
+
 
         ProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
 
@@ -106,12 +115,23 @@ public class MainMenu extends AppCompatActivity {
 
 
 
+
                         productViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Intent intent = new Intent(MainMenu.this, Item.class);
-                                intent.putExtra("Product ID", products.getPid());
-                                startActivity(intent);
+                                if (type.equals("Admin")){
+                                    Intent intent = new Intent(MainMenu.this, AdminEditProductsActivity.class);
+                                    intent.putExtra("Product ID", products.getPid());
+                                    startActivity(intent);
+
+                                }
+                                else{
+
+                                    Intent intent = new Intent(MainMenu.this, Item.class);
+                                    intent.putExtra("Product ID", products.getPid());
+                                    startActivity(intent);
+                                }
+
                             }
                         });
                     }

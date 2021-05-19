@@ -88,7 +88,7 @@
                 android:layout_weight="1"
                 android:background="#FFFFFF"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/button_me_black" />
+                app:srcCompat="@drawable/button_settings_black" />
 
         </LinearLayout>
 

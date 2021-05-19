@@ -28,17 +28,7 @@
             app:queryHint="Search"/>
 
 
-        <Button
-            android:id="@+id/checkOrdersBtn"
-            android:layout_width="125dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
-            android:layout_marginLeft="1dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginBottom="20dp"
-            android:text="Check Orders"
-            android:textSize="10dp"
-            />
+
 
 
 
@@ -114,10 +104,10 @@
         />
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="77dp"
+        android:layout_height="78dp"
         android:orientation="horizontal"
         android:layout_below="@+id/add_product_button"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="6dp"
         >
 
         <View
@@ -133,23 +123,26 @@
             android:layout_weight="1"
             android:background="#FFFFFF"
             android:tint="#00956767"
+            android:scaleType="fitCenter"
             app:srcCompat="@drawable/home1" />
 
         <ImageButton
-            android:id="@+id/likesButton"
-            android:layout_width="wrap_content"
+            android:id="@+id/editproductsButton"
+            android:layout_width="64dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#FFFFFF"
-            app:srcCompat="@drawable/likes" />
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/button_products_black" />
 
         <ImageButton
-            android:id="@+id/purchasesButton"
-            android:layout_width="wrap_content"
+            android:id="@+id/ordersButton"
+            android:layout_width="66dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#FFFFFF"
-            app:srcCompat="@drawable/purchases" />
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/button_deliveries_black" />
 
         <ImageButton
             android:id="@+id/meButton"
@@ -157,6 +150,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#FFFFFF"
+            android:scaleType="fitCenter"
             app:srcCompat="@drawable/me" />
 
         <View

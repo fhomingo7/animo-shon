@@ -36,7 +36,8 @@ import java.util.HashMap;
 
 public class AdminMenu extends AppCompatActivity {
     private ImageView InputProductImage;
-    private Button AddProductButton, CheckOrdersButton;
+    private Button AddProductButton;
+    private ImageButton CheckOrdersButton, EditProductsButton;
     private EditText InputProductName, InputProductDescription, InputProductPrice, InputProductStock, InputProductBrand;
     private static final int GalleryPick = 1;
     private Uri ImageUri;
@@ -55,7 +56,8 @@ public class AdminMenu extends AppCompatActivity {
         ProductImagesRef = FirebaseStorage.getInstance().getReference().child("Product Images");
         ProductRef = FirebaseDatabase.getInstance().getReference().child("Products");
         AddProductButton = (Button) findViewById(R.id.add_product_button);
-        CheckOrdersButton = (Button) findViewById(R.id.checkOrdersBtn);
+        CheckOrdersButton = (ImageButton) findViewById(R.id.ordersButton);
+        EditProductsButton = (ImageButton) findViewById(R.id.editproductsButton);
         InputProductImage = (ImageView) findViewById(R.id.select_product_image);
         InputProductName = (EditText) findViewById(R.id.product_name);
         InputProductDescription = (EditText) findViewById(R.id.product_description);
@@ -92,6 +94,15 @@ public class AdminMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(AdminMenu.this, AdminNewOrdersActivity.class);
+                startActivity(i);
+            }
+        });
+
+        EditProductsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(AdminMenu.this, MainMenu.class);
+                i.putExtra("Admin", "Admin");
                 startActivity(i);
             }
         });

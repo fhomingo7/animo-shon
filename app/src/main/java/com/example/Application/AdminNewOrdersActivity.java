@@ -128,7 +128,7 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
     public static class AdminOrdersViewHolder extends RecyclerView.ViewHolder{
 
         public TextView username, userphone, usertotalprice, userdatetime, usershippingaddress, userstudentnumber;
-        public Button ShowOrdersBtn;
+        public ImageButton ShowOrdersBtn;
 
         public AdminOrdersViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
@@ -139,7 +139,7 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
             userdatetime = itemView.findViewById(R.id.order_date_time);
             usershippingaddress = itemView.findViewById(R.id.order_address);
             userstudentnumber = itemView.findViewById(R.id.order_studentnumber);
-            ShowOrdersBtn = itemView.findViewById(R.id.order_button);
+            ShowOrdersBtn = itemView.findViewById(R.id.ordersButton);
         }
     }
     private void RemoveOrder(String uID) {

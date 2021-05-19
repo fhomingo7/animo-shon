@@ -124,11 +124,12 @@
 
             <ImageButton
                 android:id="@+id/meButton"
-                android:layout_width="wrap_content"
+                android:layout_width="72dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#FFFFFF"
-                app:srcCompat="@drawable/me1" />
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/button_settings_green" />
 
             <View
                 android:layout_width="0dp"
