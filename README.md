@@ -12,7 +12,7 @@ Virtual Device in Android Studio
 - Pixel 4 API 24
 - Resolution: 1080 x 2280; 440 dpi
 - API: 24
-- Target: Android 4.1 (Google APIs)
+- Target: Android 7.0 (Google APIs)
 
 # Environment Setup
 1. Download the latest version of Android Studio and have a Firebase database
@@ -87,6 +87,17 @@ Added User Functions
 - user is now able to add to their cart and see total price
 - user can also change quantity of items in the cart
 - sliding animation is temporarily implemented 
+
+### May 18, 2021
+My Profile 
+- Functioning and can update user information
+
+Added User Functions
+- Added confirm shipping details and confirm order to cart list
+- Added verification for user to order and ship products
+
+### May 19, 2021
+Allows administrator to check user Orders and the products inside the Orders
 
 # Contributors
 Programmed by Shawn Castillo, Jason Ching, Florenz Domingo
