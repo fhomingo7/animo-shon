@@ -104,7 +104,7 @@
                 android:layout_weight="1"
                 android:background="#FFFFFF"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/button_like_green" />
+                app:srcCompat="@drawable/button_like_black" />
 
             <ImageButton
                 android:id="@+id/purchasesButton"
@@ -122,7 +122,7 @@
                 android:layout_weight="1"
                 android:background="#FFFFFF"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/button_me_black" />
+                app:srcCompat="@drawable/button_me_green" />
 
         </LinearLayout>
 

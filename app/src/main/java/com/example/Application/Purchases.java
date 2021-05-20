@@ -177,22 +177,32 @@ public class Purchases extends AppCompatActivity {
                     public void onCancelled(@NonNull @NotNull DatabaseError error) { }
                 });
 
+                historyRef.child("state").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                        adminOrders.setState(snapshot.getValue(String.class));
+                    }
+                    @Override
+                    public void onCancelled(@NonNull @NotNull DatabaseError error) { }
+                });
+
                 adminOrdersViewHolder.username.setText("Name: " + adminOrders.getName());
                 adminOrdersViewHolder.userphone.setText("Phone: " + adminOrders.getPhone());
                 adminOrdersViewHolder.userstudentnumber.setText("Student Number: " + adminOrders.getStudentnumber());
                 adminOrdersViewHolder.usertotalprice.setText("Total Amount: ₱" + adminOrders.getTotalAmount());
                 adminOrdersViewHolder.userdatetime.setText("Orders at: " + adminOrders.getDate() + " "+ adminOrders.getTime());
                 adminOrdersViewHolder.usershippingaddress.setText("Shipping Address: " + adminOrders.getAddress() + ", " +  adminOrders.getCity());
+                adminOrdersViewHolder.state.setText("State: " + adminOrders.getState());
 
                 adminOrdersViewHolder.ShowOrdersBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 
-                        String uID = getRef(i).getKey();
-
-                        Intent i = new Intent (Purchases.this, AdminUserProductsActivity.class);
-                        i.putExtra("uid", uID);
-                        startActivity(i);
+//                        String uID = getRef(i).getKey();
+//
+//                        Intent i = new Intent (Purchases.this, AdminUserProductsActivity.class);
+//                        i.putExtra("uid", uID);
+//                        startActivity(i);
                     }
                 });
             }

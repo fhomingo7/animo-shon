@@ -89,6 +89,7 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
 
         final DatabaseReference ordersReference = FirebaseDatabase.getInstance().getReference().child("Orders").child(Prevalent.currentOnlineUser.getStudentnumber());
         final DatabaseReference historyReference = FirebaseDatabase.getInstance().getReference().child("History").child(Prevalent.currentOnlineUser.getStudentnumber());
+        final DatabaseReference detailsReference = FirebaseDatabase.getInstance().getReference().child("History Details").child(Prevalent.currentOnlineUser.getStudentnumber());
 
         HashMap<String, Object> ordersMap = new HashMap<>();
         ordersMap.put("totalAmount", totalAmount);
@@ -142,5 +143,26 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
 
             }
         });
+
+//        detailsReference.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot snapshot) {
+//                int orderNumber = 0;
+//                for (int i = 0; i < snapshot.getChildrenCount(); i++){
+//                    orderNumber += 1;
+//                }
+//
+//                detailsReference.child(String.valueOf("Order " + orderNumber)).updateChildren(ordersMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull @NotNull Task<Void> task) {
+//
+//                    }
+//                });
+//            }
+//            @Override
+//            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+//
+//            }
+//        });
     }
 }

@@ -17,10 +17,16 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.Application.Models.AdminOrders;
+import com.example.Application.Prevalent.Prevalent;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -70,6 +76,7 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
                 adminOrdersViewHolder.usertotalprice.setText("Total Amount: ₱" + adminOrders.getTotalAmount());
                 adminOrdersViewHolder.userdatetime.setText("Orders at: " + adminOrders.getDate() + " "+ adminOrders.getTime());
                 adminOrdersViewHolder.usershippingaddress.setText("Shipping Address: " + adminOrders.getAddress() + ", " +  adminOrders.getCity());
+                adminOrdersViewHolder.state.setText("State: " + adminOrders.getState());
 
                 adminOrdersViewHolder.ShowOrdersBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -129,7 +136,7 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
 
     public static class AdminOrdersViewHolder extends RecyclerView.ViewHolder{
 
-        public TextView username, userphone, usertotalprice, userdatetime, usershippingaddress, userstudentnumber;
+        public TextView username, userphone, usertotalprice, userdatetime, usershippingaddress, userstudentnumber, state;
         public Button ShowOrdersBtn;
 
         public AdminOrdersViewHolder(@NonNull @NotNull View itemView) {
@@ -142,9 +149,23 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
             usershippingaddress = itemView.findViewById(R.id.order_address);
             userstudentnumber = itemView.findViewById(R.id.order_studentnumber);
             ShowOrdersBtn = itemView.findViewById(R.id.order_button);
+            state = itemView.findViewById(R.id.order_state);
         }
     }
     private void RemoveOrder(String uID) {
         ordersRef.child(uID).removeValue();
+        ordersRef = FirebaseDatabase.getInstance().getReference().child("History").child(String.valueOf(Prevalent.currentOnlineUser.getStudentnumber()));
+        ordersRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                for (int i = 0; i < snapshot.getChildrenCount(); i++){
+                    ordersRef.child(String.valueOf("Order " + i)).child("state").setValue("shipped");
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+            }
+        });
     }
 }

@@ -25,7 +25,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/purchase_view"
             android:layout_width="match_parent"
-            android:layout_height="646dp"
+            android:layout_height="565dp"
             android:background="#C2DACD" />
 
         <LinearLayout
