@@ -188,5 +188,41 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
 
             }
         });
+
+        final DatabaseReference updateStock = FirebaseDatabase.getInstance().getReference().child("Products");
+        updateStock.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+
+                String userID = String.valueOf(Prevalent.currentOnlineUser.getStudentnumber());
+                final DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference()
+                        .child("Cart List").child("Admin View").child(userID).child("Products");
+
+                for (DataSnapshot ds1 : snapshot.getChildren()){
+                    cartListRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot snapshot) {
+                            for(DataSnapshot ds : snapshot.getChildren()) {
+                                if (ds.child("pname").getValue(String.class).equals(ds1.child("name").getValue(String.class))){
+                                    int initialValue = Integer.valueOf(ds1.child("stock").getValue(String.class));
+                                    int minusValue = Integer.valueOf(ds.child("quantity").getValue(String.class));
+                                    int finalValue = initialValue - minusValue;
+                                    updateStock.child(ds1.getKey()).child("stock").setValue(String.valueOf(finalValue));
+                                }
+                            }
+                        }
+                        @Override
+                        public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+                        }
+                    });
+                }
+
+            }
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+            }
+        });
     }
 }
