@@ -234,7 +234,16 @@ public class Item extends AppCompatActivity {
                     item_description.setText(products.getDescription());
                     item_brand.setText(products.getBrand());
                     Picasso.get().load(products.getImage()).into(item_image1);
-                    numberButton.setRange(1, Integer.valueOf(products.getStock()));
+
+                    if (Integer.valueOf(products.getStock()) == 0){
+                        numberButton.setNumber("0");
+                        numberButton.setVisibility(View.INVISIBLE);
+                        addToCartButton.setText("Sold Out");
+                        addToCartButton.setEnabled(false);
+                    }
+                    else {
+                        numberButton.setRange(1, Integer.valueOf(products.getStock()));
+                    }
                 }
             }
 
