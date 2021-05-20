@@ -6,6 +6,7 @@ import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,7 +38,7 @@ import java.util.HashMap;
 public class AdminMenu extends AppCompatActivity {
     private ImageView InputProductImage;
     private Button AddProductButton;
-    private ImageButton CheckOrdersButton, EditProductsButton;
+    private ImageButton CheckOrdersButton, EditProductsButton, LogoutButton;
     private EditText InputProductName, InputProductDescription, InputProductPrice, InputProductStock, InputProductBrand;
     private static final int GalleryPick = 1;
     private Uri ImageUri;
@@ -59,6 +60,7 @@ public class AdminMenu extends AppCompatActivity {
         CheckOrdersButton = (ImageButton) findViewById(R.id.ordersButton);
         EditProductsButton = (ImageButton) findViewById(R.id.editproductsButton);
         InputProductImage = (ImageView) findViewById(R.id.select_product_image);
+        LogoutButton = (ImageButton) findViewById(R.id.logoutButton);
         InputProductName = (EditText) findViewById(R.id.product_name);
         InputProductDescription = (EditText) findViewById(R.id.product_description);
         InputProductPrice = (EditText) findViewById(R.id.product_price);
@@ -79,6 +81,13 @@ public class AdminMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ValidateProductData();
+            }
+        });
+        LogoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(AdminMenu.this, MainActivity.class);
+                startActivity(i);
             }
         });
         android.widget.SearchView search = (android.widget.SearchView) findViewById(R.id.searchBar);

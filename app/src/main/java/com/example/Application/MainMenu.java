@@ -27,7 +27,7 @@ public class MainMenu extends AppCompatActivity {
     private DatabaseReference ProductsRef;
     private RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
-    private ImageButton CheckOrdersButton, HomeButton, settingButton, editButton;
+    private ImageButton CheckOrdersButton, HomeButton, logoutButton, editButton;
 
     private String type = "";
 
@@ -47,17 +47,25 @@ public class MainMenu extends AppCompatActivity {
             cartButton.setVisibility(View.INVISIBLE);
             CheckOrdersButton = (ImageButton) findViewById(R.id.purchasesButton);
             HomeButton = (ImageButton) findViewById(R.id.homeButton);
-            settingButton = (ImageButton) findViewById(R.id.meButton);
+            logoutButton = (ImageButton) findViewById(R.id.meButton);
             editButton = (ImageButton) findViewById(R.id.likesButton);
             CheckOrdersButton.setImageResource(R.drawable.button_deliveries_black);
             HomeButton.setImageResource(R.drawable.button_home_black);
-            settingButton.setImageResource(R.drawable.button_settings_black);
+            logoutButton.setImageResource(R.drawable.button_logout_filled);
             editButton.setImageResource(R.drawable.button_products_green);
 
             CheckOrdersButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(MainMenu.this, AdminNewOrdersActivity.class);
+                    startActivity(i);
+                }
+            });
+
+            logoutButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(MainMenu.this, MainActivity.class);
                     startActivity(i);
                 }
             });

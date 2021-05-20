@@ -145,13 +145,13 @@
             app:srcCompat="@drawable/button_deliveries_black" />
 
         <ImageButton
-            android:id="@+id/meButton"
+            android:id="@+id/logoutButton"
             android:layout_width="42dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#FFFFFF"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/button_settings_black" />
+            app:srcCompat="@drawable/button_logout_filled" />
 
         <View
             android:layout_width="0dp"
