@@ -80,7 +80,6 @@ public class Likes extends AppCompatActivity {
         });
 
         recyclerView = findViewById(R.id.likedItems);
-        recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
@@ -100,7 +99,6 @@ public class Likes extends AppCompatActivity {
             protected void onBindViewHolder(@NonNull LikeViewHolder likeViewHolder, int i, @NonNull Cart sample) {
                 likeViewHolder.txtProductPrice.setText(sample.getPrice());
                 likeViewHolder.txtProductName.setText(sample.getPname());
-                System.out.println("HELLO");
 
                 final DatabaseReference imageRef = FirebaseDatabase.getInstance().getReference().child("Products");
                 imageRef.addListenerForSingleValueEvent(new ValueEventListener() {
