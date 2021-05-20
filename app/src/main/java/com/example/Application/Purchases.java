@@ -40,7 +40,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -56,7 +55,8 @@ public class Purchases extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.purchases_menu);
 
-        historyRef = FirebaseDatabase.getInstance().getReference().child("History").child(Prevalent.currentOnlineUser.getStudentnumber());
+        historyRef = FirebaseDatabase.getInstance().getReference()
+                .child("History").child(Prevalent.currentOnlineUser.getStudentnumber());
 
         ImageButton homeButton = (ImageButton)findViewById(R.id.homeButton);
         homeButton.setOnClickListener(new View.OnClickListener() {
@@ -194,15 +194,16 @@ public class Purchases extends AppCompatActivity {
                 adminOrdersViewHolder.usershippingaddress.setText("Shipping Address: " + adminOrders.getAddress() + ", " +  adminOrders.getCity());
                 adminOrdersViewHolder.state.setText("State: " + adminOrders.getState());
 
+                String orderNumber = getRef(i).getKey();
                 adminOrdersViewHolder.ShowOrdersBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 
-//                        String uID = getRef(i).getKey();
-//
-//                        Intent i = new Intent (Purchases.this, AdminUserProductsActivity.class);
-//                        i.putExtra("uid", uID);
-//                        startActivity(i);
+                        String uID = getRef(i).getKey();
+                        Intent i = new Intent (Purchases.this, UserHistoryDetails.class);
+                        i.putExtra("uid", uID);
+                        i.putExtra("order", orderNumber);
+                        startActivity(i);
                     }
                 });
             }

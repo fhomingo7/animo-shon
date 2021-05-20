@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.Application.Models.Products;
 import com.example.Application.Prevalent.Prevalent;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -144,25 +145,55 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
             }
         });
 
-//        detailsReference.addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot snapshot) {
-//                int orderNumber = 0;
-//                for (int i = 0; i < snapshot.getChildrenCount(); i++){
-//                    orderNumber += 1;
-//                }
-//
-//                detailsReference.child(String.valueOf("Order " + orderNumber)).updateChildren(ordersMap).addOnCompleteListener(new OnCompleteListener<Void>() {
-//                    @Override
-//                    public void onComplete(@NonNull @NotNull Task<Void> task) {
-//
-//                    }
-//                });
-//            }
-//            @Override
-//            public void onCancelled(@NonNull @NotNull DatabaseError error) {
-//
-//            }
-//        });
+        detailsReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                int orderNumber = 0;
+                for (int i = 0; i < snapshot.getChildrenCount(); i++){
+                    orderNumber += 1;
+                }
+
+                String userID = String.valueOf(Prevalent.currentOnlineUser.getStudentnumber());
+                final DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart List").child("Admin View").child(userID).child("Products");
+
+                int finalOrderNumber = orderNumber;
+                cartListRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot snapshot) {
+                        int productCount = 0;
+                            for(DataSnapshot ds : snapshot.getChildren()) {
+                                HashMap<String, Object> items = new HashMap<>();
+                                items.put("pname", ds.child("pname").getValue(String.class));
+                                items.put("quantity", ds.child("quantity").getValue(String.class));
+                                items.put("price", ds.child("price").getValue(String.class));
+                                items.put("image", ds.child("price").getValue(String.class));
+                                detailsReference.child(String.valueOf("Order " + finalOrderNumber)).child(String.valueOf("Item " + productCount)).updateChildren(items).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull @NotNull Task<Void> task) {
+
+                                    }
+                                });
+                                productCount += 1;
+                            }
+                        FirebaseDatabase.getInstance().getReference().child("Cart List").child("Admin View").child(Prevalent.currentOnlineUser.getStudentnumber()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull @NotNull Task<Void> task) {
+                                if (task.isSuccessful()){
+                                }
+                            }
+                        });
+
+                    }
+                    @Override
+                    public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+                    }
+                });
+            }
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+            }
+        });
     }
 }

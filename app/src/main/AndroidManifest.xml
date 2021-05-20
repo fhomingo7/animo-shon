@@ -53,6 +53,9 @@
         <activity
             android:name=".Item"
             android:label="View Item" />
+        <activity
+            android:name=".UserHistoryDetails"
+            android:label="History Details" />
     </application>
 
 </manifest>
