@@ -175,13 +175,6 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
                                 });
                                 productCount += 1;
                             }
-                        FirebaseDatabase.getInstance().getReference().child("Cart List").child("Admin View").child(Prevalent.currentOnlineUser.getStudentnumber()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull @NotNull Task<Void> task) {
-                                if (task.isSuccessful()){
-                                }
-                            }
-                        });
 
                     }
                     @Override
