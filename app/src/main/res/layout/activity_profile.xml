@@ -46,6 +46,7 @@
             android:textColor="#757575"
             android:textSize="12dp"
             app:backgroundTint="@color/white" />
+
     </LinearLayout>
 
     <EditText
@@ -63,8 +64,8 @@
         android:layout_marginEnd="39dp"
         android:layout_marginRight="39dp"
         android:layout_marginBottom="534dp"
-        android:hint="Full Name..."
         android:padding="10dp" />
+
     <EditText
         android:id="@+id/settings_phone_number"
         android:layout_width="333dp"
@@ -74,14 +75,14 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="39dp"
-        android:layout_marginLeft="39dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="39dp"
-        android:layout_marginRight="39dp"
-        android:layout_marginBottom="474dp"
-        android:hint="Phone Number..."
+        android:layout_marginEnd="37dp"
+        android:layout_marginRight="37dp"
+        android:layout_marginBottom="421dp"
         android:padding="10dp" />
+
     <EditText
         android:id="@+id/settings_address"
         android:layout_width="333dp"
@@ -91,13 +92,48 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="39dp"
-        android:layout_marginLeft="39dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginLeft="41dp"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="39dp"
-        android:layout_marginRight="39dp"
-        android:layout_marginBottom="414dp"
-        android:hint="Address..."
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginBottom="309dp"
         android:padding="10dp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/settings_full_name"
+        android:layout_alignStart="@+id/settings_full_name"
+        android:layout_alignLeft="@+id/settings_full_name"
+        android:layout_marginStart="7dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginBottom="-9dp"
+        android:text="Full Name:" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/settings_phone_number"
+        android:layout_alignStart="@+id/settings_phone_number"
+        android:layout_alignLeft="@+id/settings_phone_number"
+        android:layout_marginStart="9dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginBottom="-6dp"
+        android:text="Phone Number:" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/settings_address"
+        android:layout_alignStart="@+id/settings_address"
+        android:layout_alignLeft="@+id/settings_address"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="-4dp"
+        android:text="Address:" />
 
 </RelativeLayout>
