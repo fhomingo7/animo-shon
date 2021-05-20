@@ -14,8 +14,11 @@ import android.widget.Toast;
 import com.example.Application.Prevalent.Prevalent;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -85,6 +88,7 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
         saveCurrentTime = currentTime.format(calendarForDate.getTime());
 
         final DatabaseReference ordersReference = FirebaseDatabase.getInstance().getReference().child("Orders").child(Prevalent.currentOnlineUser.getStudentnumber());
+        final DatabaseReference historyReference = FirebaseDatabase.getInstance().getReference().child("History").child(Prevalent.currentOnlineUser.getStudentnumber());
 
         HashMap<String, Object> ordersMap = new HashMap<>();
         ordersMap.put("totalAmount", totalAmount);
@@ -118,5 +122,25 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
             }
         });
 
+        historyReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                int orderNumber = 0;
+                for (int i = 0; i < snapshot.getChildrenCount(); i++){
+                    orderNumber += 1;
+                }
+
+                historyReference.child(String.valueOf("Order " + orderNumber)).updateChildren(ordersMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull @NotNull Task<Void> task) {
+
+                    }
+                });
+            }
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+            }
+        });
     }
 }

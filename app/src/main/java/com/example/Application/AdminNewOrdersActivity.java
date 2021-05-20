@@ -57,7 +57,9 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
         super.onStart();
 
 
-        FirebaseRecyclerOptions<AdminOrders> options = new FirebaseRecyclerOptions.Builder<AdminOrders>().setQuery(ordersRef, AdminOrders.class).build();
+        FirebaseRecyclerOptions<AdminOrders> options =
+                new FirebaseRecyclerOptions.Builder<AdminOrders>().
+                        setQuery(ordersRef, AdminOrders.class).build();
 
         FirebaseRecyclerAdapter<AdminOrders, AdminOrdersViewHolder> adapter = new FirebaseRecyclerAdapter<AdminOrders, AdminOrdersViewHolder>(options) {
             @Override
@@ -128,7 +130,7 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
     public static class AdminOrdersViewHolder extends RecyclerView.ViewHolder{
 
         public TextView username, userphone, usertotalprice, userdatetime, usershippingaddress, userstudentnumber;
-        public ImageButton ShowOrdersBtn;
+        public Button ShowOrdersBtn;
 
         public AdminOrdersViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
@@ -139,7 +141,7 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
             userdatetime = itemView.findViewById(R.id.order_date_time);
             usershippingaddress = itemView.findViewById(R.id.order_address);
             userstudentnumber = itemView.findViewById(R.id.order_studentnumber);
-            ShowOrdersBtn = itemView.findViewById(R.id.ordersButton);
+            ShowOrdersBtn = itemView.findViewById(R.id.order_button);
         }
     }
     private void RemoveOrder(String uID) {
