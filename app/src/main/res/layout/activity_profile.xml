@@ -28,7 +28,7 @@
 
         <TextView
             android:id="@+id/profileText"
-            android:layout_width="237dp"
+            android:layout_width="185dp"
             android:layout_height="83dp"
             android:background="#346110"
             android:gravity="center"
@@ -38,7 +38,7 @@
 
         <Button
             android:id="@+id/updateProfileBtn"
-            android:layout_width="wrap_content"
+            android:layout_width="107dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="15dp"
             android:background="#346110"

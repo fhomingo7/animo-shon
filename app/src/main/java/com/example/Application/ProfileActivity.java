@@ -37,6 +37,19 @@ public class ProfileActivity extends AppCompatActivity {
         phoneNumberEdit = (EditText) findViewById(R.id.settings_phone_number);
         updateButton = (Button) findViewById(R.id.updateProfileBtn);
 
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users")
+                .child(Prevalent.currentOnlineUser.getStudentnumber());
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                fullNameEdit.setText(dataSnapshot.child("name").getValue(String.class));
+                addressEdit.setText(dataSnapshot.child("address").getValue(String.class));
+                phoneNumberEdit.setText(dataSnapshot.child("phonenumber").getValue(String.class));
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) { }
+        });
+
         ImageButton backButton = (ImageButton)findViewById(R.id.profile_backButton);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
