@@ -90,14 +90,6 @@ public class AdminMenu extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        android.widget.SearchView search = (android.widget.SearchView) findViewById(R.id.searchBar);
-        search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(AdminMenu.this, SearchProductActivity.class);
-                startActivity(i);
-            }
-        });
 
         CheckOrdersButton.setOnClickListener(new View.OnClickListener() {
             @Override

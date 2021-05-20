@@ -78,13 +78,7 @@ public class MainMenu extends AppCompatActivity {
                 }
             });
             android.widget.SearchView search = (android.widget.SearchView) findViewById(R.id.searchBar);
-            search.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent i = new Intent(MainMenu.this, SearchProductActivity.class);
-                    startActivity(i);
-                }
-            });
+            search.setVisibility(View.INVISIBLE);
         }
 
         else {
