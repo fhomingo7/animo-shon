@@ -235,6 +235,7 @@ public class Item extends AppCompatActivity {
                     item_description.setText(products.getDescription());
                     item_brand.setText(products.getBrand());
                     Picasso.get().load(products.getImage()).into(item_image1);
+                    numberButton.setRange(1, Integer.valueOf(products.getStock()));
                 }
             }
 
