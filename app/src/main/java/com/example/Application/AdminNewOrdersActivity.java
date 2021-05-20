@@ -106,7 +106,7 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
                                     String uID = getRef(i).getKey();
 
                                     RemoveOrder(uID);
-                                    FirebaseDatabase.getInstance().getReference().child("Cart List").child("Admin View").child(Prevalent.currentOnlineUser.getStudentnumber()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    FirebaseDatabase.getInstance().getReference().child("Cart List").child("Admin View").child(uID).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull @NotNull Task<Void> task) {
                                             if (task.isSuccessful()){
@@ -161,7 +161,7 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
     }
     private void RemoveOrder(String uID) {
         ordersRef.child(uID).removeValue();
-        ordersRef = FirebaseDatabase.getInstance().getReference().child("History").child(String.valueOf(Prevalent.currentOnlineUser.getStudentnumber()));
+        ordersRef = FirebaseDatabase.getInstance().getReference().child("History").child(String.valueOf(uID));
         ordersRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {

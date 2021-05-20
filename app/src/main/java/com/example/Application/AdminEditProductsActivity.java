@@ -52,6 +52,12 @@ public class AdminEditProductsActivity extends AppCompatActivity {
 
         displaySpecificProductInfo();
 
+        applyChangesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                applyChanges();
+            }
+        });
     }
 
     private void applyChanges() {
