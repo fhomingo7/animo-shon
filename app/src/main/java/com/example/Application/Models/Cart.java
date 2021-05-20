@@ -1,16 +1,25 @@
 package com.example.Application.Models;
 
 public class Cart {
-    private String pid, pname, price, quantity;
+    private String pid, pname, price, quantity, stock;
 
     public Cart() {
     }
 
-    public Cart(String pid, String pname, String price, String quantity) {
+    public Cart(String pid, String pname, String price, String quantity, String stock) {
         this.pid = pid;
         this.pname = pname;
         this.price = price;
         this.quantity = quantity;
+        this.stock = stock;
+    }
+
+    public String getStock() {
+        return stock;
+    }
+
+    public void setStock(String stock) {
+        this.stock = stock;
     }
 
     public String getPid() {

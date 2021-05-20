@@ -116,7 +116,6 @@ public class Item extends AppCompatActivity {
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) { }
                 });
-
             }
         });
     }

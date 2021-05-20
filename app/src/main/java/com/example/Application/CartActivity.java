@@ -97,6 +97,7 @@ public class CartActivity extends AppCompatActivity {
                 cartViewHolder.txtProductPrice.setText(sample.getPrice());
                 cartViewHolder.txtProductName.setText(sample.getPname());
                 cartViewHolder.productQuantity.setNumber(sample.getQuantity());
+                cartViewHolder.productQuantity.setRange(1, Integer.valueOf(sample.getStock()));
 
                 int productPrice = ((Integer.parseInt(sample.getPrice().replace("₱",""))))
                         * (Integer.parseInt(sample.getQuantity()));
