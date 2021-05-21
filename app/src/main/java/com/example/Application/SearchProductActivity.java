@@ -2,6 +2,7 @@ package com.example.Application;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -29,6 +30,7 @@ public class SearchProductActivity extends AppCompatActivity {
     private EditText searchProductBar;
     private RecyclerView searchList;
     private String searchInput;
+    RecyclerView.LayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +41,8 @@ public class SearchProductActivity extends AppCompatActivity {
         searchProductBar = findViewById(R.id.searchProductBar);
         searchProductButton = findViewById(R.id.searchProductButton);
         searchList = findViewById(R.id.searchList);
-        searchList.setLayoutManager(new LinearLayoutManager(SearchProductActivity.this));
+        layoutManager = new GridLayoutManager(this, 2);
+        searchList.setLayoutManager(layoutManager);
 
         searchProductButton.setOnClickListener(new View.OnClickListener() {
             @Override
