@@ -44,7 +44,7 @@ public class SearchProductActivity extends AppCompatActivity {
         searchProductButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                searchInput = searchProductBar.getText().toString();
+                searchInput = searchProductBar.getText().toString().toUpperCase();
 
                 onStart();
             }
