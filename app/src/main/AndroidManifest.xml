@@ -13,7 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Draft1"
         tools:replace="android:theme,android:label">
-        <activity android:name=".AdminEditProductsActivity"></activity>
+        <activity android:name=".AboutUsActivity"></activity>
+        <activity android:name=".FAQActivity" />
+        <activity android:name=".AdminEditProductsActivity" />
         <activity android:name=".AdminUserProductsActivity" />
         <activity android:name=".AdminNewOrdersActivity" />
         <activity android:name=".ProfileActivity" />

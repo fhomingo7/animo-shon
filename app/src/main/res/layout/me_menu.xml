@@ -53,10 +53,10 @@
                     app:backgroundTint="#FFFFFF" />
 
                 <Button
-                    android:id="@+id/how_to_use"
+                    android:id="@+id/faq"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="How To Use"
+                    android:text="F.A.Q."
                     android:textColor="#346110"
                     app:backgroundTint="#FFFFFF" />
 
