@@ -97,7 +97,15 @@ Added User Functions
 - Added verification for user to order and ship products
 
 ### May 19, 2021
-Allows administrator to check user Orders and the products inside the Orders
+Added Admin Functions
+- Allows administrator to check user Orders and the products inside the Orders
+
+### May 23, 2021
+Added Admin Functions
+- Administrator can edit products (delete button that does not yet function) and approve order
+
+Payment Method
+- added radio buttons for Gcash and COD options since we have no experience in bank/card payment 
 
 # Contributors
 Programmed by Shawn Castillo, Jason Ching, Florenz Domingo
