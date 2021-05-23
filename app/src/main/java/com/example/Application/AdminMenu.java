@@ -2,6 +2,7 @@ package com.example.Application;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
@@ -136,6 +137,14 @@ public class AdminMenu extends AppCompatActivity {
         }
         else {
             StoreProductInformation();
+            InputProductDescription.setText("");
+            InputProductBrand.setText("");
+            InputProductName.setText("");
+            InputProductStock.setText("");
+            InputProductPrice.setText("");
+            Drawable myDrawable = getResources().getDrawable(R.drawable.noimage);
+            InputProductImage.setImageDrawable(myDrawable);
+
         }
     }
 
