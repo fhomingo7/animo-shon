@@ -69,7 +69,8 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:scrollbars="none">
 
                         <ImageView
                             android:id="@+id/item_image1"
@@ -81,7 +82,7 @@
                             android:id="@+id/item_image2"
                             android:layout_width="400dp"
                             android:layout_height="400dp"
-                            android:visibility="visible"
+                            android:visibility="gone"
                             app:srcCompat="@drawable/noimage" />
 
                         <ImageView
@@ -268,7 +269,10 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="#346110"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
@@ -290,8 +294,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_gravity="center_vertical"
-                android:layout_marginBottom="10dp"
-                android:paddingBottom="10dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
                 android:text="Add To Cart"
                 android:textColor="#346110"
                 app:backgroundTint="#FFFFFF"

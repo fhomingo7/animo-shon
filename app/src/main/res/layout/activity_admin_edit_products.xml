@@ -11,125 +11,145 @@
     app:cardElevation="15dp"
     android:layout_marginRight="5dp"
     >
-    <RelativeLayout
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="726dp">
 
-        <ImageView
-            android:id="@+id/admin_itemImage"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:scaleType="centerCrop" />
-
-
-        <EditText
-            android:id="@+id/admin_itemName"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/admin_itemImage"
-            android:layout_margin="5dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"
-            android:gravity="center_horizontal"
-            android:hint="Item Name"
-            android:padding="12dp"
-            android:textAlignment="center"
-            android:textSize="25dp"
-            android:textStyle="bold" />
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/admin_itemPrice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/admin_itemName"
-            android:layout_margin="5dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="2dp"
-            android:layout_marginRight="2dp"
-            android:layout_marginBottom="2dp"
-            android:gravity="center_horizontal"
-            android:hint="Item Price"
-            android:padding="12dp"
-            android:textAlignment="center"
-            android:textSize="25dp"
-            android:textStyle="bold"/>
-        <EditText
-            android:id="@+id/admin_itemStock"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/admin_itemPrice"
-            android:layout_margin="5dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="2dp"
-            android:layout_marginRight="2dp"
-            android:layout_marginBottom="2dp"
-            android:gravity="center_horizontal"
-            android:hint="Item Stock"
-            android:padding="12dp"
-            android:textAlignment="center"
-            android:textSize="25dp"
-            android:textStyle="bold"/>
-        <EditText
-            android:id="@+id/admin_itemBrand"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/admin_itemStock"
-            android:layout_margin="5dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="2dp"
-            android:layout_marginRight="2dp"
-            android:layout_marginBottom="2dp"
-            android:gravity="center_horizontal"
-            android:hint="Item Brand"
-            android:padding="12dp"
-            android:textAlignment="center"
-            android:textSize="25dp"
-            android:textStyle="bold"/>
-        <EditText
-            android:id="@+id/admin_itemDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/admin_itemBrand"
-            android:layout_margin="5dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="2dp"
-            android:layout_marginRight="2dp"
-            android:layout_marginBottom="2dp"
-            android:gravity="center_horizontal"
-            android:hint="Item Description"
-            android:padding="12dp"
-            android:textAlignment="center"
-            android:textSize="25dp"
-            android:textStyle="bold"/>
+            <ImageView
+                android:id="@+id/admin_itemImage"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop" />
 
-        <Button
-            android:id="@+id/admin_editProductButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/admin_itemDescription"
-            android:layout_marginStart="50dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="50dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="50dp"
-            android:background="#346110"
-            android:gravity="center_horizontal"
-            android:padding="12dp"
-            android:text="Apply Changes"
-            android:textAlignment="center"
-            android:textSize="12dp"
-            android:textStyle="bold"
-            app:backgroundTint="#346110" />
+            <EditText
+                android:id="@+id/admin_itemName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center_horizontal"
+                android:hint="Item Name"
+                android:padding="12dp"
+                android:textAlignment="center"
+                android:textSize="25dp"
+                android:textStyle="bold" />
 
-    </RelativeLayout>
+            <EditText
+                android:id="@+id/admin_itemPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center_horizontal"
+                android:hint="Item Price"
+                android:padding="12dp"
+                android:textAlignment="center"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/admin_itemStock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center_horizontal"
+                android:hint="Item Stock"
+                android:padding="12dp"
+                android:textAlignment="center"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/admin_itemBrand"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center_horizontal"
+                android:hint="Item Brand"
+                android:padding="12dp"
+                android:textAlignment="center"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/admin_itemDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center_horizontal"
+                android:hint="Item Description"
+                android:padding="12dp"
+                android:textAlignment="center"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/admin_editProductButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginBottom="10dp"
+                android:background="#346110"
+                android:gravity="center_horizontal"
+                android:padding="12dp"
+                android:text="Apply Changes"
+                android:textAlignment="center"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                app:backgroundTint="#346110" />
+
+            <Button
+                android:id="@+id/admin_delete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginBottom="0dp"
+                android:background="#346110"
+                android:gravity="center_horizontal"
+                android:padding="12dp"
+                android:text="Delete Product"
+                android:textAlignment="center"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                app:backgroundTint="#346110" />
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.cardview.widget.CardView>

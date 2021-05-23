@@ -45,14 +45,6 @@
                     app:backgroundTint="#FFFFFF" />
 
                 <Button
-                    android:id="@+id/bank_account"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Bank Account/Cards"
-                    android:textColor="#346110"
-                    app:backgroundTint="#FFFFFF" />
-
-                <Button
                     android:id="@+id/faq"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

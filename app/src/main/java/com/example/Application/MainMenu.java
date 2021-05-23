@@ -90,7 +90,7 @@ public class MainMenu extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent i = new Intent(MainMenu.this, Purchases.class);
                     startActivity(i);
-                    overridePendingTransition(R.anim.slide_left,R.anim.slide_right);
+
                 }
             });
 
@@ -100,7 +100,7 @@ public class MainMenu extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent i = new Intent(MainMenu.this, Likes.class);
                     startActivity(i);
-                    overridePendingTransition(R.anim.slide_left,R.anim.slide_right);
+
                 }
             });
 
@@ -110,7 +110,7 @@ public class MainMenu extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent i = new Intent(MainMenu.this, Me.class);
                     startActivity(i);
-                    overridePendingTransition(R.anim.slide_left,R.anim.slide_right);
+
                 }
             });
 

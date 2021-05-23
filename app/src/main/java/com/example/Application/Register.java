@@ -77,6 +77,10 @@ public class Register extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Please enter the confirmation password!", Toast.LENGTH_LONG).show();
             return;
         }
+        if (checkValidID(studentNumber)) {
+            Toast.makeText(getApplicationContext(), "Invalid ID number!", Toast.LENGTH_LONG).show();
+            return;
+        }
         if (password.length() < 8){
             Toast.makeText(getApplicationContext(), "The password should be 8 characters long.", Toast.LENGTH_LONG).show();
             return;
@@ -86,6 +90,23 @@ public class Register extends AppCompatActivity {
             return;
         }
         validateAccount(studentNumber, name, password);
+    }
+
+    private boolean checkValidID(String studentNumber){
+        // true = invalid, false = valid
+        if(studentNumber.length() != 8) return true;
+
+        int ID = Integer.parseInt(studentNumber);
+        int sum = 0;
+        for(int i = 1; i <= 8; i++){
+            sum = sum + (i * (ID % 10));
+            ID /= 10;
+        }
+        System.out.println(sum);
+        if(sum % 11 == 0)
+            return false;
+
+        return true;
     }
 
     private void validateAccount(final String studentNumber, final String name, final String password) {

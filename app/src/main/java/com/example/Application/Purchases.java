@@ -64,7 +64,7 @@ public class Purchases extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(Purchases.this, MainMenu.class);
                 startActivity(i);
-                overridePendingTransition(R.anim.slide_right,R.anim.slide_left);
+
             }
         });
 
@@ -74,7 +74,7 @@ public class Purchases extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(Purchases.this, Likes.class);
                 startActivity(i);
-                overridePendingTransition(R.anim.slide_right,R.anim.slide_left);
+
             }
         });
 
@@ -84,7 +84,7 @@ public class Purchases extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(Purchases.this, Me.class);
                 startActivity(i);
-                overridePendingTransition(R.anim.slide_left,R.anim.slide_right);
+
             }
         });
 

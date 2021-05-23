@@ -27,7 +27,7 @@ import java.util.HashMap;
 
 public class AdminEditProductsActivity extends AppCompatActivity {
 
-    private Button applyChangesButton;
+    private Button applyChangesButton, deleteButton;
     private EditText name, price, description, stock, brand;
     private ImageView imageView;
     private String productID = "";
@@ -43,6 +43,7 @@ public class AdminEditProductsActivity extends AppCompatActivity {
         productsRef = FirebaseDatabase.getInstance().getReference().child("Products").child(productID);
 
         applyChangesButton = findViewById(R.id.admin_editProductButton);
+        deleteButton = findViewById(R.id.admin_delete);
         name = findViewById(R.id.admin_itemName);
         price = findViewById(R.id.admin_itemPrice);
         description = findViewById(R.id.admin_itemDescription);
@@ -58,6 +59,17 @@ public class AdminEditProductsActivity extends AppCompatActivity {
                 applyChanges();
             }
         });
+
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteItem();
+            }
+        });
+    }
+
+    private void deleteItem(){
+        // add function
     }
 
     private void applyChanges() {

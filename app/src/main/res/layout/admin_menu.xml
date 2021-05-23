@@ -3,6 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Add Product" />
+
     <ImageView
         android:id="@+id/select_product_image"
         android:layout_width="350dp"
@@ -18,7 +27,19 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="#346110"
-        android:orientation="horizontal" />
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="Add Product"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+    </LinearLayout>
 
     <EditText
         android:id="@+id/product_name"
@@ -93,7 +114,7 @@
         android:layout_width="match_parent"
         android:layout_height="78dp"
         android:layout_below="@+id/add_product_button"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="5dp"
         android:orientation="horizontal">
 
         <View
@@ -104,39 +125,50 @@
 
         <ImageButton
             android:id="@+id/homeButton"
-            android:layout_width="43dp"
+            android:layout_width="103dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:adjustViewBounds="false"
             android:background="#FFFFFF"
+            android:cropToPadding="false"
             android:scaleType="fitCenter"
             android:tint="#00956767"
             app:srcCompat="@drawable/button_home_green" />
 
         <ImageButton
             android:id="@+id/editproductsButton"
-            android:layout_width="64dp"
+            android:layout_width="103dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:adjustViewBounds="false"
             android:background="#FFFFFF"
+            android:cropToPadding="false"
             android:scaleType="fitCenter"
+            android:tint="#00956767"
             app:srcCompat="@drawable/button_products_black" />
 
         <ImageButton
             android:id="@+id/ordersButton"
-            android:layout_width="66dp"
+            android:layout_width="103dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:adjustViewBounds="false"
             android:background="#FFFFFF"
+            android:cropToPadding="false"
             android:scaleType="fitCenter"
+            android:tint="#00956767"
             app:srcCompat="@drawable/button_deliveries_black" />
 
         <ImageButton
             android:id="@+id/logoutButton"
-            android:layout_width="42dp"
+            android:layout_width="103dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:adjustViewBounds="false"
             android:background="#FFFFFF"
+            android:cropToPadding="false"
             android:scaleType="fitCenter"
+            android:tint="#00956767"
             app:srcCompat="@drawable/button_logout_filled" />
 
         <View
