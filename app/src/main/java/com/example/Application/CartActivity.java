@@ -41,7 +41,7 @@ public class CartActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private Button checkoutButton;
     private TextView totalAmount, textMsg1;
-    private int totalPrice = 0;
+    private float totalPrice = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,12 +97,12 @@ public class CartActivity extends AppCompatActivity {
                 cartViewHolder.txtProductPrice.setText(sample.getPrice());
                 cartViewHolder.txtProductName.setText(sample.getPname());
                 cartViewHolder.productQuantity.setNumber(sample.getQuantity());
-                cartViewHolder.productQuantity.setRange(1, Integer.valueOf(sample.getStock()));
+                cartViewHolder.productQuantity.setRange(1, Integer.parseInt(sample.getStock()));
 
-                int productPrice = ((Integer.parseInt(sample.getPrice().replace("₱",""))))
-                        * (Integer.parseInt(sample.getQuantity()));
+                float productPrice = ((Float.parseFloat(sample.getPrice().replace("₱",""))))
+                        * (Float.parseFloat(sample.getQuantity()));
                 totalPrice += productPrice;
-                totalAmount.setText("₱ " + totalPrice);
+                totalAmount.setText(String.format("₱ %.2f", totalPrice));
 
                 final DatabaseReference imageRef = FirebaseDatabase.getInstance().getReference().child("Products");
                 imageRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -127,8 +127,8 @@ public class CartActivity extends AppCompatActivity {
                                 .child("Products").child(sample.getPid()).child("quantity").setValue(String.valueOf(newValue));
                         cartRef.child("Admin View").child(Prevalent.currentOnlineUser.getStudentnumber())
                                 .child("Products").child(sample.getPid()).child("quantity").setValue(String.valueOf(newValue));
-                        totalPrice -= ((Integer.parseInt(sample.getPrice().replace("₱",""))))
-                                * (Integer.parseInt(sample.getQuantity()));
+                        totalPrice -= ((Float.parseFloat(sample.getPrice().replace("₱",""))))
+                                * (Float.parseFloat(sample.getQuantity()));
                     }
                 });
 
@@ -141,10 +141,10 @@ public class CartActivity extends AppCompatActivity {
                         cartRef.child("Admin View").child(Prevalent.currentOnlineUser.getStudentnumber())
                                 .child("Products").child(sample.getPid()).removeValue();
 
-                        int productPrice = ((Integer.parseInt(sample.getPrice().replace("₱",""))))
-                                * (Integer.parseInt(sample.getQuantity()));
+                        float productPrice = ((Float.parseFloat(sample.getPrice().replace("₱",""))))
+                                * (Float.parseFloat(sample.getQuantity()));
                         totalPrice -= productPrice;
-                        totalAmount.setText("₱ " + totalPrice);
+                        totalAmount.setText(String.format("₱ %.2f", totalPrice));
                     }
                 });
             }
