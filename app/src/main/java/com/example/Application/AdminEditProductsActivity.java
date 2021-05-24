@@ -121,6 +121,29 @@ public class AdminEditProductsActivity extends AppCompatActivity {
             public void onCancelled(@NonNull @NotNull DatabaseError error) { }
         });
 
+        cartRef = FirebaseDatabase.getInstance().getReference().child("Like List");
+        cartRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                for(DataSnapshot ds : snapshot.getChildren()) {
+                    final DatabaseReference cartRef1 = FirebaseDatabase.getInstance().getReference().
+                            child("Like List").child(ds.getKey()).child("Products");
+                    cartRef1.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                            if (snapshot.hasChild(productID)){
+                                cartRef1.child(productID).removeValue();
+                            }
+                        }
+                        @Override
+                        public void onCancelled(@NonNull @NotNull DatabaseError error) { }
+                    });
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) { }
+        });
+
         Toast.makeText(AdminEditProductsActivity.this, "Item is Deleted.", Toast.LENGTH_SHORT).show();
         Intent i = new Intent(AdminEditProductsActivity.this, AdminMenu.class);
         startActivity(i);
