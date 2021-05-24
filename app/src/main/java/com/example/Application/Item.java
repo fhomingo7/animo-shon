@@ -103,12 +103,12 @@ public class Item extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if (dataSnapshot.child(Prevalent.currentOnlineUser.getStudentnumber()).child("Products").child(productID).exists()) {
-                            likeButton.setImageResource(R.drawable.liked_item);
+                            likeButton.setImageResource(R.drawable.button_liked_green);
                             removeFromLikeList();
                             checkifLiked();
                         }
                         else {
-                            likeButton.setImageResource(R.drawable.button_like_green);
+                            likeButton.setImageResource(R.drawable.button_like);
                             addingToLikeList();
                             checkifLiked();
                         }
@@ -126,10 +126,10 @@ public class Item extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.child(Prevalent.currentOnlineUser.getStudentnumber()).child("Products").child(productID).exists()) {
-                    likeButton.setImageResource(R.drawable.liked_item);
+                    likeButton.setImageResource(R.drawable.button_liked_green);
                 }
                 else{
-                    likeButton.setImageResource(R.drawable.button_like_green);
+                    likeButton.setImageResource(R.drawable.button_like);
                 }
             }
             @Override
