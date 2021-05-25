@@ -20,6 +20,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -54,6 +55,20 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Check();
             }
+        });
+        final DatabaseReference imageRef = FirebaseDatabase.getInstance().getReference().child("Users").child(Prevalent.currentOnlineUser.getStudentnumber());
+        imageRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+            {
+                nameEdit.setText(dataSnapshot.child("name").getValue(String.class));
+                addressEdit.setText(dataSnapshot.child("address").getValue(String.class));
+                phoneEdit.setText(dataSnapshot.child("phonenumber").getValue(String.class));
+                cityEdit.setText(dataSnapshot.child("city").getValue(String.class));
+                studentIDEdit.setText(dataSnapshot.child("studentnumber").getValue(String.class));
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) { }
         });
     }
 
