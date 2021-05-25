@@ -110,6 +110,8 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull @NotNull Task<Void> task) {
                                             if (task.isSuccessful()){
+                                                finish();
+                                                startActivity(getIntent());
                                             }
                                         }
                                     });
