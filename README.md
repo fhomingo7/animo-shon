@@ -107,6 +107,13 @@ Added Admin Functions
 Payment Method
 - added radio buttons for Gcash and COD options since we have no experience in bank/card payment 
 
+### May 26, 2021
+Addittional Features
+- user cannot check out if user has not picked delivery option
+- received package (customer feedback)
+- prompts in login is updated
+- search still has bugs
+
 # Contributors
 Programmed by Shawn Castillo, Jason Ching, Florenz Domingo
 
