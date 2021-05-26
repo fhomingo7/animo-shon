@@ -77,7 +77,9 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
                 adminOrdersViewHolder.userdatetime.setText("Orders at: " + adminOrders.getDate() + " "+ adminOrders.getTime());
                 adminOrdersViewHolder.usershippingaddress.setText("Shipping Address: " + adminOrders.getAddress() + ", " +  adminOrders.getCity());
                 adminOrdersViewHolder.state.setText("State: " + adminOrders.getState());
+                adminOrdersViewHolder.customerState.setText("Customer State: " + adminOrders.getCustomerState());
 
+                String state = adminOrders.getState();
                 adminOrdersViewHolder.ShowOrdersBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -93,53 +95,43 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
                 adminOrdersViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        CharSequence options[] = new CharSequence[]{
-                                "Yes", "No"
-                        };
-                        AlertDialog.Builder builder = new AlertDialog.Builder(AdminNewOrdersActivity.this);
-                        builder.setTitle("Ship this user's order? ");
+                        if (state.equals("not shipped")){
+                            CharSequence options[] = new CharSequence[]{
+                                    "Yes", "No"
+                            };
+                            AlertDialog.Builder builder = new AlertDialog.Builder(AdminNewOrdersActivity.this);
+                            builder.setTitle("Ship this user's order? ");
 
-                        builder.setItems(options, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                if (which == 0){
-                                    String uID = getRef(i).getKey();
-
-//                                    RemoveOrder(uID);
-//                                    FirebaseDatabase.getInstance().getReference().child("Cart List").child("Admin View").child(uID).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
-//                                        @Override
-//                                        public void onComplete(@NonNull @NotNull Task<Void> task) {
-//                                            if (task.isSuccessful()){
-//                                                finish();
-//                                                startActivity(getIntent());
-//                                            }
-//                                        }
-//                                    });
-                                    ordersRef.child("state").setValue("shipped");
-                                    DatabaseReference historyRef = FirebaseDatabase.getInstance().getReference().child("History").child(uID);
-                                    historyRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                                        @Override
-                                        public void onDataChange(DataSnapshot snapshot) {
-                                            for (int i = 0; i < snapshot.getChildrenCount(); i++){
-                                                historyRef.child(String.valueOf("Order " + i)).child("state").setValue("shipped");
+                            builder.setItems(options, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    if (which == 0){
+                                        String uID = getRef(i).getKey();
+                                        ordersRef.child(uID).child("state").setValue("shipped");
+                                        DatabaseReference historyRef = FirebaseDatabase.getInstance().getReference().child("History").child(uID);
+                                        historyRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(DataSnapshot snapshot) {
+                                                for (int i = 0; i < snapshot.getChildrenCount(); i++){
+                                                    historyRef.child(String.valueOf("Order " + i)).child("state").setValue("shipped");
+                                                }
                                             }
-                                        }
-                                        @Override
-                                        public void onCancelled(@NonNull @NotNull DatabaseError error) {
+                                            @Override
+                                            public void onCancelled(@NonNull @NotNull DatabaseError error) {
 
-                                        }
-                                    });
+                                            }
+                                        });
 
-                                    finish();
-                                    startActivity(getIntent());
+                                        finish();
+                                        startActivity(getIntent());
+                                    }
+                                    else {
+                                        finish();
+                                    }
                                 }
-                                else {
-                                    finish();
-                                }
-                            }
-                        });
-
-                        builder.show();
+                            });
+                            builder.show();
+                        }
                     }
                 });
 
@@ -162,7 +154,7 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
 
     public static class AdminOrdersViewHolder extends RecyclerView.ViewHolder{
 
-        public TextView username, userphone, usertotalprice, userdatetime, usershippingaddress, userstudentnumber, state;
+        public TextView username, userphone, usertotalprice, userdatetime, usershippingaddress, userstudentnumber, state, customerState;
         public Button ShowOrdersBtn;
 
         public AdminOrdersViewHolder(@NonNull @NotNull View itemView) {
@@ -176,6 +168,7 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
             userstudentnumber = itemView.findViewById(R.id.order_studentnumber);
             ShowOrdersBtn = itemView.findViewById(R.id.order_button);
             state = itemView.findViewById(R.id.order_state);
+            customerState = itemView.findViewById(R.id.customer_state);
         }
     }
 }

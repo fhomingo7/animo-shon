@@ -193,6 +193,7 @@ public class Purchases extends AppCompatActivity {
                 adminOrdersViewHolder.userdatetime.setText("Orders at: " + adminOrders.getDate() + " "+ adminOrders.getTime());
                 adminOrdersViewHolder.usershippingaddress.setText("Shipping Address: " + adminOrders.getAddress() + ", " +  adminOrders.getCity());
                 adminOrdersViewHolder.state.setText("State: " + adminOrders.getState());
+                adminOrdersViewHolder.customerState.setText("Customer State: " + adminOrders.getCustomerState());
 
                 String state = adminOrders.getState();
                 String customerState = adminOrders.getCustomerState();
