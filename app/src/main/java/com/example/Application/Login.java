@@ -124,7 +124,7 @@ public class Login extends AppCompatActivity{
                 }
                 else
                 {
-                    Toast.makeText(Login.this, "Account for " + studentNumber + " do not exists.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, "Account for " + studentNumber + " does not exist.", Toast.LENGTH_SHORT).show();
                 }
             }
 
