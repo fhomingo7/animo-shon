@@ -194,6 +194,9 @@ public class Purchases extends AppCompatActivity {
                 adminOrdersViewHolder.usershippingaddress.setText("Shipping Address: " + adminOrders.getAddress() + ", " +  adminOrders.getCity());
                 adminOrdersViewHolder.state.setText("State: " + adminOrders.getState());
 
+                String state = adminOrders.getState();
+                String customerState = adminOrders.getCustomerState();
+
                 String orderNumber = getRef(i).getKey();
                 adminOrdersViewHolder.ShowOrdersBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -204,6 +207,41 @@ public class Purchases extends AppCompatActivity {
                         i.putExtra("uid", uID);
                         i.putExtra("order", orderNumber);
                         startActivity(i);
+                    }
+                });
+
+                adminOrdersViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (state.equals("shipped") && customerState.equals("not received")){
+                            CharSequence options[] = new CharSequence[]{
+                                    "Yes", "No"
+                            };
+                            AlertDialog.Builder builder = new AlertDialog.Builder(Purchases.this);
+                            builder.setTitle("Have you received the order? ");
+
+                            builder.setItems(options, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    if (which == 0){
+                                        FirebaseDatabase.getInstance().getReference().child("Cart List").child("Admin View").child(Prevalent.currentOnlineUser.getStudentnumber()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull @NotNull Task<Void> task) {
+                                                if (task.isSuccessful()){
+                                                    RemoveOrder();
+                                                    finish();
+                                                    startActivity(getIntent());
+                                                }
+                                            }
+                                        });
+                                    }
+                                    else {
+                                        finish();
+                                    }
+                                }
+                            });
+                            builder.show();
+                        }
                     }
                 });
             }
@@ -219,5 +257,26 @@ public class Purchases extends AppCompatActivity {
         };
         recyclerView.setAdapter(adapter);
         adapter.startListening();
+    }
+
+    private void RemoveOrder() {
+        DatabaseReference ordersRef = FirebaseDatabase.getInstance().getReference().child("Orders");
+        String uID = Prevalent.currentOnlineUser.getStudentnumber();
+        ordersRef.child(uID).removeValue();
+        ordersRef = FirebaseDatabase.getInstance().getReference().child("History").child(uID);
+        DatabaseReference finalOrdersRef = ordersRef;
+        ordersRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                for (int i = 0; i < snapshot.getChildrenCount(); i++){
+                    finalOrdersRef.child(String.valueOf("Order " + i)).child("state").setValue("shipped");
+                    finalOrdersRef.child(String.valueOf("Order " + i)).child("customerState").setValue("received");
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+            }
+        });
     }
 }

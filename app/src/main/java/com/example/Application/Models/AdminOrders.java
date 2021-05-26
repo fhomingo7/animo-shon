@@ -2,12 +2,12 @@ package com.example.Application.Models;
 
 public class AdminOrders {
 
-    private String address, city, date, name, phone, state, time, totalAmount, studentnumber;
+    private String address, city, date, name, phone, state, customerState, time, totalAmount, studentnumber;
 
     public AdminOrders() {
     }
 
-    public AdminOrders(String address, String city, String date, String name, String phone, String state, String time, String studentnumber,  String totalAmount) {
+    public AdminOrders(String address, String city, String date, String name, String phone, String state, String customerState, String time, String studentnumber,  String totalAmount) {
         this.address = address;
         this.city = city;
         this.date = date;
@@ -15,8 +15,17 @@ public class AdminOrders {
         this.phone = phone;
         this.studentnumber = studentnumber;
         this.state = state;
+        this.customerState = customerState;
         this.time = time;
         this.totalAmount = totalAmount;
+    }
+
+    public String getCustomerState() {
+        return customerState;
+    }
+
+    public void setCustomerState(String customerState) {
+        this.customerState = customerState;
     }
 
     public String getAddress() {

@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +32,6 @@ import com.google.firebase.database.ValueEventListener;
 import org.jetbrains.annotations.NotNull;
 
 public class AdminNewOrdersActivity extends AppCompatActivity {
-
 
     private RecyclerView ordersList;
     private DatabaseReference ordersRef;
@@ -97,7 +97,7 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
                                 "Yes", "No"
                         };
                         AlertDialog.Builder builder = new AlertDialog.Builder(AdminNewOrdersActivity.this);
-                        builder.setTitle("Ship this user's product? ");
+                        builder.setTitle("Ship this user's order? ");
 
                         builder.setItems(options, new DialogInterface.OnClickListener() {
                             @Override
@@ -105,16 +105,33 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
                                 if (which == 0){
                                     String uID = getRef(i).getKey();
 
-                                    RemoveOrder(uID);
-                                    FirebaseDatabase.getInstance().getReference().child("Cart List").child("Admin View").child(uID).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                    RemoveOrder(uID);
+//                                    FirebaseDatabase.getInstance().getReference().child("Cart List").child("Admin View").child(uID).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                        @Override
+//                                        public void onComplete(@NonNull @NotNull Task<Void> task) {
+//                                            if (task.isSuccessful()){
+//                                                finish();
+//                                                startActivity(getIntent());
+//                                            }
+//                                        }
+//                                    });
+                                    ordersRef.child("state").setValue("shipped");
+                                    DatabaseReference historyRef = FirebaseDatabase.getInstance().getReference().child("History").child(uID);
+                                    historyRef.addListenerForSingleValueEvent(new ValueEventListener() {
                                         @Override
-                                        public void onComplete(@NonNull @NotNull Task<Void> task) {
-                                            if (task.isSuccessful()){
-                                                finish();
-                                                startActivity(getIntent());
+                                        public void onDataChange(DataSnapshot snapshot) {
+                                            for (int i = 0; i < snapshot.getChildrenCount(); i++){
+                                                historyRef.child(String.valueOf("Order " + i)).child("state").setValue("shipped");
                                             }
                                         }
+                                        @Override
+                                        public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+                                        }
                                     });
+
+                                    finish();
+                                    startActivity(getIntent());
                                 }
                                 else {
                                     finish();
@@ -160,21 +177,5 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
             ShowOrdersBtn = itemView.findViewById(R.id.order_button);
             state = itemView.findViewById(R.id.order_state);
         }
-    }
-    private void RemoveOrder(String uID) {
-        ordersRef.child(uID).removeValue();
-        ordersRef = FirebaseDatabase.getInstance().getReference().child("History").child(String.valueOf(uID));
-        ordersRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                for (int i = 0; i < snapshot.getChildrenCount(); i++){
-                    ordersRef.child(String.valueOf("Order " + i)).child("state").setValue("shipped");
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull @NotNull DatabaseError error) {
-
-            }
-        });
     }
 }
