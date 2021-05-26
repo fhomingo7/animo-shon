@@ -197,7 +197,7 @@ public class CartActivity extends AppCompatActivity {
                         textMsg1.setText("Congratulations, your final order has been shipped successfully. Soon you will receive your order at your doorstep");
                         checkoutButton.setVisibility(View.GONE);
 
-                        Toast.makeText(CartActivity.this, "you can purchase more products, once you receive your first final order", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CartActivity.this, "You may purchase more products once you have received your order!", Toast.LENGTH_SHORT).show();
                     }
                     else if (shippingState.equals("not shipped")){
                         recyclerView.setVisibility(View.GONE);
@@ -205,7 +205,7 @@ public class CartActivity extends AppCompatActivity {
                         textMsg1.setVisibility(View.VISIBLE);
                         checkoutButton.setVisibility(View.GONE);
 
-                        Toast.makeText(CartActivity.this, "you can purchase more products, once you receive your first final order", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CartActivity.this, "You may purchase more products once you have received your order!", Toast.LENGTH_SHORT).show();
                     }
 
                 }
