@@ -127,6 +127,7 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
                                     }
                                     else {
                                         finish();
+                                        startActivity(getIntent());
                                     }
                                 }
                             });

@@ -238,6 +238,7 @@ public class Purchases extends AppCompatActivity {
                                     }
                                     else {
                                         finish();
+                                        startActivity(getIntent());
                                     }
                                 }
                             });
