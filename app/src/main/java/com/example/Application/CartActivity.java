@@ -72,10 +72,26 @@ public class CartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                final DatabaseReference cartListRef = FirebaseDatabase.getInstance()
+                        .getReference().child("Cart List").child("User View");
+                cartListRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+                    {
+                        if (dataSnapshot.child(Prevalent.currentOnlineUser.getStudentnumber()).exists()) {
+                            Intent intent = new Intent(CartActivity.this, ConfirmFinalOrderActivity.class);
+                            intent.putExtra("Total Price", String.valueOf(totalPrice));
+                            startActivity(intent);
+                        }
+                        else {
+                            Toast.makeText(getApplicationContext(), "Cart is still empty..", Toast.LENGTH_LONG).show();
+                            return;
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull @NotNull DatabaseError error) { }
+                });
 
-                Intent intent = new Intent(CartActivity.this, ConfirmFinalOrderActivity.class);
-                intent.putExtra("Total Price", String.valueOf(totalPrice));
-                startActivity(intent);
             }
         });
     }
