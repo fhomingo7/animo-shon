@@ -85,7 +85,7 @@
             android:paddingLeft="20dp">
 
             <RadioButton
-                android:id="@+id/radioButton"
+                android:id="@+id/GCash"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="GCash (Jason Ching - 09088975509)"
@@ -93,7 +93,7 @@
                 android:textColor="#6C6C6C" />
 
             <RadioButton
-                android:id="@+id/radioButton2"
+                android:id="@+id/CashOnDelivery"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Cash on Delivery"

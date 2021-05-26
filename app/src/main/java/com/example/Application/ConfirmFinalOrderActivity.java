@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.example.Application.Models.Products;
@@ -32,6 +33,7 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
 
     private EditText nameEdit, phoneEdit, addressEdit, cityEdit, studentIDEdit;
     private Button confirmBtn;
+    private RadioButton gcash, cashondelivery;
 
     private String totalAmount = "";
 
@@ -49,6 +51,8 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
         addressEdit = (EditText)findViewById(R.id.shipment_address);
         cityEdit = (EditText)findViewById(R.id.shipment_city);
         studentIDEdit = (EditText)findViewById(R.id.shipment_studentID);
+        gcash = (RadioButton)findViewById(R.id.GCash);
+        cashondelivery = (RadioButton)findViewById(R.id.CashOnDelivery);
 
         confirmBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +91,9 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
         }
         else if (TextUtils.isEmpty(studentIDEdit.getText().toString())){
             Toast.makeText(this, "Please provide your Student ID.", Toast.LENGTH_SHORT).show();
+        }
+        else if (!gcash.isChecked() && !cashondelivery.isChecked()){
+            Toast.makeText(this, "Please choose your delivery method", Toast.LENGTH_SHORT).show();
         }
         else {
             confirmOrder();
