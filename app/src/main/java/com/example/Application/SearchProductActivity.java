@@ -18,8 +18,11 @@ import com.example.Application.Models.Products;
 import com.example.Application.ViewHolder.ProductViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
@@ -41,13 +44,12 @@ public class SearchProductActivity extends AppCompatActivity {
         searchProductBar = findViewById(R.id.searchProductBar);
         searchProductButton = findViewById(R.id.searchProductButton);
         searchList = findViewById(R.id.searchList);
-        layoutManager = new GridLayoutManager(this, 2);
-        searchList.setLayoutManager(layoutManager);
+        layoutManager = new LinearLayoutManager(this);
 
         searchProductButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                searchInput = searchProductBar.getText().toString().toUpperCase();
+                searchInput = searchProductBar.getText().toString().toLowerCase();
 
                 onStart();
             }
@@ -57,29 +59,33 @@ public class SearchProductActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Products");
-
-        FirebaseRecyclerOptions<Products> options = new FirebaseRecyclerOptions.Builder<Products>().setQuery(reference.orderByChild("name").startAt(searchInput), Products.class).build();
-
-
+        FirebaseRecyclerOptions<Products> options = new FirebaseRecyclerOptions.Builder<Products>().setQuery(reference, Products.class).build();
         FirebaseRecyclerAdapter<Products, ProductViewHolder> adapter = new FirebaseRecyclerAdapter<Products, ProductViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull @NotNull ProductViewHolder productViewHolder, int i, @NonNull @NotNull Products products) {
-                productViewHolder.productName.setText(products.getName());
-                productViewHolder.productPrice.setText("₱ " + products.getPrice());
-                Picasso.get().load(products.getImage()).into(productViewHolder.productImage);
+                if (searchInput != null && products.getName().toLowerCase().contains(searchInput)){
+                    productViewHolder.productName.setText(products.getName());
+                    productViewHolder.productPrice.setText("₱ " + products.getPrice());
+                    Picasso.get().load(products.getImage()).into(productViewHolder.productImage);
 
+                    productViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(SearchProductActivity.this, Item.class);
+                            intent.putExtra("Product ID", products.getPid());
+                            startActivity(intent);
+                        }
+                    });
+                }
 
-
-                productViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(SearchProductActivity.this, Item.class);
-                        intent.putExtra("Product ID", products.getPid());
-                        startActivity(intent);
-                    }
-                });
+                else {
+                    productViewHolder.itemView.setVisibility(View.GONE);
+                    productViewHolder.itemView.setEnabled(false);
+                    productViewHolder.itemView.setActivated(false);
+                    layoutManager.removeView(productViewHolder.itemView);
+                    productViewHolder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0, 0));
+                }
             }
 
             @NonNull
@@ -92,6 +98,7 @@ public class SearchProductActivity extends AppCompatActivity {
             }
         };
 
+        searchList.setLayoutManager(layoutManager);
         searchList.setAdapter(adapter);
         adapter.startListening();
 
