@@ -33,6 +33,7 @@ AdminNewOrdersActivity <|-- AdminCartViewHolder
 CartActivity <|-- CartViewHolder
 Likes <|-- LikeViewHolder
 Item <|-- ProductViewHolder
+AdminNewOrdersActivity <|-- AdminOrdersViewHolder
 
 interface itemClickListener{
 onClick()
