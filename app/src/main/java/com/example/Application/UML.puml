@@ -1,0 +1,339 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+MainActivity o-- Login
+MainActivity o-- Register
+Login o-- MainMenu
+Login o-- AdminMenu
+MainMenu o-- CartActivity
+MainMenu o-- Item
+MainMenu o-- Likes
+MainMenu o-- Me
+MainMenu o-- Purchases
+MainMenu o-- SearchProductActivity
+CartActivity o-- ConfirmFinalOrderActivity
+Purchases o-- UserHistoryDetails
+Me o-- FAQActivity
+Me o-- ProfileActivity
+Me o-- AboutUsActivity
+AdminMenu o-- AdminEditProductsActivity
+AdminMenu o-- AdminNewOrdersActivity
+AdminMenu o-- AdminUserProductsActivity
+AdminNewOrdersActivity <|-- AdminOrders
+CartActivity <|-- Cart
+UserHistoryDetails <|-- HistoryDetails
+Purchases <|-- UserHistory
+MainMenu <|-- Users
+MainMenu <|-- AdminOrders
+MainMenu <|-- Prevalent
+Item <|-- Products
+Prevalent o-- Users
+AdminNewOrdersActivity <|-- AdminCartViewHolder
+CartActivity <|-- CartViewHolder
+Likes <|-- LikeViewHolder
+Item <|-- ProductViewHolder
+AdminNewOrdersActivity <|-- AdminOrdersViewHolder
+
+interface itemClickListener{
+onClick()
+}
+abstract class Prevalent{
+Users currentOnlineUser
+String UserStudentNumberKey
+String UserPasswordKey
+}
+class AdminCartViewHolder{
+TextView txtProductName
+TextView txtProductPrice
+TextView txtProductQuantity
+ItemClickListener itemClickListner
+ImageView itemImage
+onClick()
+setItemClickListner()
+}
+class CartViewHolder{
+TextView txtProductName
+TextView txtProductPrice
+TextView removeItemText
+ElegantNumberButton productQuantity
+ItemClickListener itemClickListner
+ImageView itemImage
+onClick()
+setItemClickListner()
+}
+class LikeViewHolder{
+TextView txtProductName
+TextView txtProductPrice
+TextView removeItemText
+ItemClickListener itemClickListner
+ImageView itemImage
+onClick()
+setItemClickListner()
+}
+class ProductViewHolder{
+TextView productName
+TextView productPrice
+ImageView productImage
+ItemClickListener listener
+onClick()
+setItemClickListner()
+}
+abstract class Cart{
+String pid
+String pname
+String price
+String quantity
+String stock
+Cart()
+String getStock()
+void setStock(String stock)
+String getPid()
+void setPid(String pid)
+String getPname()
+void setPname(String pname)
+String getPrice()
+void setPrice(String price)
+String getQuantity()
+void setQuantity(String quantity)
+}
+abstract class HistoryDetails{
+String pname
+String price
+String quantity
+String itemNumber
+HistoryDetails()
+HistoryDetails(String itemNumber)
+HistoryDetails(String name, String quantity, String price)
+String getPname()
+void setPname(String name)
+String getPrice()
+void setPrice(String price)
+String getQuantity()
+void setQuantity(String quantity)
+}
+abstract class Products{
+String name
+String description
+String price
+String brand
+String stock
+String pid
+String date
+String time
+String image
+Products(){ }
+Products(String name, String description, String price, String brand,
+String stock, String pid, String date, String time, String image)
+String getName()
+void setName(String name)
+String getImage()
+void setImage(String image)
+String getDescription()
+void setDescription(String description)
+String getPrice()
+void setPrice(String price)
+String getBrand()
+void setBrand(String brand)
+String getStock()
+void setStock(String stock)
+String getPid()
+void setPid(String pid)
+String getDate()
+void setDate(String date)
+String getTime()
+void setTime(String time)
+}
+abstract class UserHistory{
+String orderNumber
+String address
+String city
+String date
+String name
+String phone
+String state
+String customerState
+String time
+String totalAmount
+String studentnumber
+UserHistory()
+UserHistory(String orderNumber)
+UserHistory(String address, String city, String date, String name, String phone,
+String state, String customerState, String time, String studentnumber,  String totalAmount)
+String getCustomerState()
+void setCustomerState(String customerState)
+String getOrderNumber()
+void setOrderNumber(String orderNumber)
+String getAddress()
+void setAddress(String address)
+String getCity()
+void setCity(String city)
+String getDate()
+void setDate(String date)
+String getName()
+void setName(String name)
+String getPhone()
+void setPhone(String phone)
+tring getStudentnumber()
+void setStudentnumber(String studentnumber)
+String getState()
+void setState(String state)
+String getTime()
+void setTime(String time)
+String getTotalAmount()
+void setTotalAmount(String totalAmount)
+}
+abstract class Users{
+String name
+String password
+String studentnumber
+Users()
+Users(String name, String password, String studentnumber)
+String getName()
+void setName(String name)
+String getPassword()
+void setPassword(String password)
+String getStudentnumber()
+void setStudentnumber(String studentnumber)
+}
+abstract class AdminOrders{
+String address
+String city
+String date
+String name
+String phone
+String state
+String customerState
+String time
+String totalAmount
+String studentnumber
+AdminOrders()
+getCustomerState()
+setCustomerState(String customerState)
+getAddress()
+setAddress(String address)
+String getCity()
+void setCity(String city)
+String getDate()
+void setDate(String date)
+String getName()
+void setName(String name)
+String getPhone()
+void setPhone(String phone)
+String getStudentnumber()
+setStudentnumber(String studentnumber)
+String getState()
+void setState(String state)
+String getTime()
+void setTime(String time)
+String getTotalAmount()
+void setTotalAmount(String totalAmount)
+}
+
+class MainActivity {
+onCreate()
+AllowAccess()
+}
+class MainMenu{
+onCreate()
+onStart()
+}
+class AboutUsActivity{
+onCreate()
+}
+class AdminEditProductsActivity{
+onCreate()
+deleteItem()
+applyChanges()
+displaySpecificProductInfo()
+}
+class AdminMenu{
+onCreate()
+ValidateProductData()
+StoreProductInformation()
+SaveProductInfoToDatabase()
+OpenGallery()
+onActivityResult(int requestCode, int resultCode, Intent data)
+}
+class AdminNewOrdersActivity{
+onCreate()
+onStart()
+}
+class AdminOrdersViewHolder{
+TextView username
+TextView userphone
+TextView usertotalprice
+TextView userdatetime
+TextView usershippingaddress
+TextView userstudentnumber
+TextView state
+TextView customerState
+Button ShowOrdersBtn
+AdminOrdersViewHolder()
+}
+class AdminUserProductsActivity{
+onCreate()
+onStart()
+}
+class CartActivity{
+onCreate()
+onStart()
+CheckOrderState()
+}
+class ConfirmFinalOrderActivity{
+onCreate()
+Check()
+confirmOrder()
+}
+class FAQActivity{
+onCreate()
+}
+class Item{
+onCreate()
+onStart()
+checkIfLiked()
+addingToLikeList()
+addingToCartList()
+getProductDetails()
+CheckOrderState()
+}
+class Likes{
+onCreate()
+onStart()
+}
+class Login{
+onCreate()
+loginUserAccount()
+AllowAccessToAccount()
+initializeUI()
+}
+class Me{
+onCreate()
+}
+class ProfileActivity{
+onCreate()
+updateUserInfo()
+}
+class Purchases{
+onCreate()
+onStart()
+RemoveOrder()
+}
+class Register{
+onCreate()
+registerNewUser()
+checkValidID(String studentNumber)
+validateAccount(final String studentNumber, final String name, final String password)
+initializeUI()
+}
+class SearchProductActivity{
+onCreate()
+onStart()
+}
+class UserHistoryDetails{
+onCreate()
+onStart()
+}
+
+
+@enduml

@@ -12,17 +12,11 @@ import io.paperdb.Paper;
 
 public class Me extends AppCompatActivity {
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Paper.init(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.me_menu);
-
-
-
-        
 
         ImageButton homeButton = (ImageButton)findViewById(R.id.homeButton);
         homeButton.setOnClickListener(new View.OnClickListener() {
